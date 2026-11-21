@@ -45,32 +45,47 @@ xz -9 -c Packages > Packages.xz
 idx="$(mktemp -d)"
 cp Packages Packages.gz Packages.xz "$idx/"
 apt-ftparchive \
-  -o APT::FTPArchive::Release::Origin="imod" \
-  -o APT::FTPArchive::Release::Label="imod" \
+  -o APT::FTPArchive::Release::Origin="imod repo" \
+  -o APT::FTPArchive::Release::Label="imod repo" \
   -o APT::FTPArchive::Release::Suite="stable" \
   -o APT::FTPArchive::Release::Codename="ios" \
   -o APT::FTPArchive::Release::Architectures="iphoneos-arm iphoneos-arm64 iphoneos-arm64e" \
   -o APT::FTPArchive::Release::Components="main" \
-  -o APT::FTPArchive::Release::Description="Tweaks by imod_commission" \
+  -o APT::FTPArchive::Release::Description="imod repo: tweaks by imod_commission" \
   release "$idx" > Release
 rm -rf "$idx"
 
-# 3b. Ratings: combine the frozen YouRepo votes (data/yourepo-baseline.json) with the votes cast
-# as GitHub issues, and patch the COPIES of the depictions in the site (the committed files stay
-# as they are). If the issues cannot be read, fetch-ratings.py falls back to the baseline and
-# only warns. A failure here never stops the deploy: the unpatched depictions are still valid.
+# 3b. Ratings and downloads, patched into the COPIES of the depictions in the site (the committed
+# files only carry markers). Ratings: the carried-over old votes + the votes cast as GitHub issues
+# (fetch-ratings.py). Downloads: the carried-over old total + the download counts of the GitHub
+# release files of each package that has a source repository (fetch-downloads.py). Each script falls
+# back to the carried-over numbers when GitHub's API cannot be read and only warns. A failure here
+# never stops the deploy: the unpatched depictions are still valid.
+# RATINGS_OUT (optional): a path to keep the votes JSON at, for the workflow's close-rating-issues step.
 ratings_json="$(mktemp)"
+downloads_json="$(mktemp)"
 if python3 "$ROOT/scripts/fetch-ratings.py" --out "$ratings_json" \
-   && python3 "$ROOT/scripts/patch-depictions.py" "$OUT" "$ratings_json"; then
-  :
+   && python3 "$ROOT/scripts/fetch-downloads.py" --out "$downloads_json" \
+   && python3 "$ROOT/scripts/patch-depictions.py" "$OUT" "$ratings_json" --downloads "$downloads_json"; then
+  if [ -n "${RATINGS_OUT:-}" ]; then cp "$ratings_json" "$RATINGS_OUT"; fi
 else
-  echo "warning: could not add ratings to the depictions; publishing them without" >&2
-  if [ -n "${GITHUB_ACTIONS:-}" ]; then echo "::warning::could not add ratings to the depictions"; fi
+  echo "warning: could not add ratings and downloads to the depictions; publishing them without" >&2
+  if [ -n "${GITHUB_ACTIONS:-}" ]; then echo "::warning::could not add ratings and downloads to the depictions"; fi
 fi
-rm -f "$ratings_json"
+rm -f "$ratings_json" "$downloads_json"
 
 # 4. Sanity checks: fail the build rather than publish a broken source.
 test -s Packages && test -s Packages.xz && test -s Release
+# The source's icon sits at the site root (package managers read /CydiaIcon.png): a square PNG.
+python3 - <<'PY'
+import struct, sys
+d = open("CydiaIcon.png", "rb").read(24)
+if d[:8] != b"\x89PNG\r\n\x1a\n" or d[12:16] != b"IHDR":
+    sys.exit("error: CydiaIcon.png is missing or not a PNG")
+w, h = struct.unpack(">II", d[16:24])
+if w != h or w < 128:
+    sys.exit("error: CydiaIcon.png must be square and at least 128 px, is %dx%d" % (w, h))
+PY
 n_debs="$(ls debs/*.deb | wc -l | tr -d ' ')"
 n_pkgs="$(grep -c '^Package: ' Packages || true)"
 n_sec="$(grep -c '^Section: ' Packages || true)"

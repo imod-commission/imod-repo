@@ -1,0 +1,43 @@
+name: Report a bug
+description: A problem with a package that has no issue tracker of its own
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For packages whose tweak has its own repository, use **Report an issue** on the package page:
+        it opens that repository's issues. This form is for the packages without one. Ratings do not
+        go here: use **Rate this package**.
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      description: The package with the problem.
+      options:
+        - com.imodcommission.griddy
+        - com.imodcommission.hidelsclock
+        - com.imodcommission.liquidglasstheme
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      description: As shown in your package manager.
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device, iOS version and jailbreak
+      description: For example iPhone 14, iOS 16.3, roothide.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected and what happened instead. Add a crash log if you have one.
+    validations:
+      required: true

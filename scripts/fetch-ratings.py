@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""Combine the frozen YouRepo votes with the votes cast as GitHub issues.
+"""Combine the carried-over old votes with the votes cast as GitHub issues.
 
 Reads
-  * data/yourepo-baseline.json   frozen YouRepo votes and download counts (per package id)
-  * the issues of the repository labelled "rating" (GitHub REST API), made with the issue form
-    .github/ISSUE_TEMPLATE/rate-package.yml
+  * data/yourepo-baseline.json   the old votes (per package id), the starting values
+  * the issues of the repository labelled "rating" (GitHub REST API), open AND closed, made with the
+    issue form .github/ISSUE_TEMPLATE/rate-package.yml
 
 and writes a small JSON file (never committed; the site build reads it) with, per package id,
-the combined vote count and mean and the YouRepo download number.
+the combined vote count and mean, and a list of the valid rating issues that are still open
+("closeable"), which scripts/close-rating-issues.py thanks and closes after the count.
 
 Rules for the issue votes
   * pull requests are skipped; so is any issue also labelled "ignore" (how a bad vote is removed)
@@ -15,6 +16,7 @@ Rules for the issue votes
     in debs/ and a rating of 1-5 are valid
   * one account = one vote per package: only the newest valid rating of an issue author counts
   * total votes = baseline votes + issue votes; mean = weighted mean of both
+  * closed issues count too (the workflow closes each valid vote after counting it)
 
 If the API cannot be read, only the baseline is used, a warning is printed and the exit code is
 still 0: the deploy must not fail for it.
@@ -110,8 +112,12 @@ def extract_vote(issue, known):
 
 
 def issue_votes(issues, known):
-    """{package: [ratings]} with one (the newest valid) rating per author and package."""
+    """({package: [ratings]}, [valid vote issues]): one (the newest valid) rating per author and
+    package is counted. The second list has every valid vote, newest or not, as
+    {number, state, login, package, rating, counted}; counted is False for a vote that a newer one
+    of the same author and package replaced."""
     newest = {}  # (author, package) -> (order, rating)
+    valid = []
     for issue in issues:
         v = extract_vote(issue, known)
         if v is None:
@@ -120,10 +126,22 @@ def issue_votes(issues, known):
         key = (author, package)
         if key not in newest or order > newest[key][0]:
             newest[key] = (order, rating)
+        valid.append({
+            "number": issue.get("number"),
+            "state": issue.get("state") or "open",
+            "login": (issue.get("user") or {}).get("login") or "",
+            "package": package,
+            "rating": rating,
+            "order": order,
+            "key": key,
+        })
+    for item in valid:
+        item["counted"] = newest[item.pop("key")][0] == item.pop("order")
     out = {}
     for (author, package), (order, rating) in newest.items():
         out.setdefault(package, []).append(rating)
-    return out
+    valid.sort(key=lambda i: i["number"] or 0)
+    return out, valid
 
 
 def fetch_issues(repo, token):
@@ -168,8 +186,6 @@ def combine(baseline, known, votes):
             "mean": None if mean is None else round(mean, 4),
             "baselineCount": bc,
             "issueCount": ic,
-            "downloads": b.get("downloads"),
-            "downloadsDetail": b.get("downloadsDetail"),
         }
     return packages
 
@@ -204,15 +220,14 @@ def main():
     except (urllib.error.URLError, OSError, ValueError, TimeoutError) as e:
         api_ok = False
         issues = []
-        warn("could not read the rating issues (%s); using the YouRepo baseline only" % e)
+        warn("could not read the rating issues (%s); using the carried-over votes only" % e)
 
-    votes = issue_votes(issues, known)
+    votes, valid = issue_votes(issues, known)
     result = {
         "apiOk": api_ok,
-        "source": base.get("source", "YouRepo"),
-        "asOf": base.get("asOf"),
-        "downloadsLabel": "Downloads (%s, as of %s)" % (base.get("source", "YouRepo"), base.get("asOf")),
         "packages": combine(baseline, known, votes),
+        # valid vote issues still open: the workflow thanks and closes them after this count
+        "closeable": [v for v in valid if v["state"] == "open"] if api_ok else [],
     }
     text = json.dumps(result, ensure_ascii=False, indent=2) + "\n"
     if args.out == "-":
@@ -222,7 +237,7 @@ def main():
             f.write(text)
         n_issue = sum(len(v) for v in votes.values())
         print("ratings: %d package(s), %d issue vote(s), API %s -> %s" % (
-            len(result["packages"]), n_issue, "ok" if api_ok else "FAILED (baseline only)", args.out))
+            len(result["packages"]), n_issue, "ok" if api_ok else "FAILED (carried-over votes only)", args.out))
 
 
 if __name__ == "__main__":

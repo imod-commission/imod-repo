@@ -21,7 +21,7 @@
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "*YouRepo listed the arm64 and arm builds as two packages; downloads and votes are added together.*",
+          "markdown": "*The arm64 and arm builds are one package here; the votes and downloads of both earlier listings are added together.*",
           "useSpacing": true
         },
         {

@@ -21,7 +21,7 @@
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "*YouRepo listed this package as version 0.1; the build in this source is 0.0.1-1+debug.*",
+          "markdown": "*The build in this source is version 0.0.1-1+debug.*",
           "useSpacing": true
         },
         {

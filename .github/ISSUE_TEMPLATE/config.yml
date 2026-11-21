@@ -1,1 +1,4 @@
-blank_issues_enabled: true
+# This repository's issue list is for ratings only (the votes shown on the package pages):
+# no blank issues. A bug report about a tweak goes to the tweak's own repository (the
+# "Report an issue" button on its page); the packages without one use the bug-report form.
+blank_issues_enabled: false

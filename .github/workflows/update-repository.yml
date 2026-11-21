@@ -2,6 +2,8 @@ name: Update repository
 
 # Runs on every push to main, when a rating issue changes (the votes are issues labelled
 # "rating"), once a day and by hand. A new vote shows after the next deploy (a few minutes).
+# After counting, each valid rating issue is thanked and closed (scripts/close-rating-issues.py);
+# closed issues still count.
 on:
   push:
     branches: [main]
@@ -15,7 +17,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  issues: read
+  issues: write
 
 concurrency:
   group: pages
@@ -23,6 +25,8 @@ concurrency:
 
 jobs:
   build:
+    # An issue event only matters when the issue is (or was) a rating; bug reports do not rebuild the site.
+    if: github.event_name != 'issues' || contains(github.event.issue.labels.*.name, 'rating') || github.event.label.name == 'rating'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -31,11 +35,24 @@ jobs:
       - name: Build the site
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RATINGS_OUT: ${{ runner.temp }}/ratings.json
         run: bash scripts/update-repository.sh
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+      # After the count above: thank and close the valid rating issues that are still open.
+      # Never fails the run (a warning only); needs issues: write.
+      - name: Thank and close counted rating issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RATINGS_OUT: ${{ runner.temp }}/ratings.json
+        run: |
+          if [ -s "$RATINGS_OUT" ]; then
+            python3 scripts/close-rating-issues.py "$RATINGS_OUT"
+          else
+            echo "no votes file, nothing to close"
+          fi
 
   deploy:
     needs: build

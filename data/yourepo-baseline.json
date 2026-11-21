@@ -1,7 +1,7 @@
 {
   "source": "YouRepo",
   "asOf": "2026-11-21",
-  "comment": "Frozen numbers read from the old YouRepo source (migration/yourepo/). The ONLY place the Downloads rows come from; votes here are added to the GitHub issue votes at build time (scripts/fetch-ratings.py). downloads is null when YouRepo had no count; downloadsDetail is optional text shown after the number.",
+  "comment": "Frozen numbers read from the old YouRepo source (migration/yourepo/). They are the starting values: the rating votes here are added to the GitHub issue votes (scripts/fetch-ratings.py) and downloads here are added to the GitHub release download counts (scripts/fetch-downloads.py). The site shows the sums as just Rating and Downloads. downloads is null when YouRepo had no count; downloadsDetail is kept for reference only and is not shown.",
   "packages": {
     "com.imodcommission.26page": {
       "ratingCount": 10,

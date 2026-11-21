@@ -6,11 +6,12 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for rating! The stars on the package pages are the old YouRepo votes plus the votes
-        from these issues. Each GitHub account has one vote per package: if you rate the same
-        package again, your newest valid rating replaces the older one. A new vote shows on the
-        package page after the next site update (a few minutes). Do not change the headings in the
-        form body; the site reads them.
+        Thanks for rating! The stars on the package pages come from these rating issues (plus the
+        votes carried over from the previous source). Each GitHub account has one vote per package: if
+        you rate the same package again, your newest valid rating replaces the older one. A new vote
+        shows on the package page after the next site update (a few minutes), and the issue is closed
+        automatically once it is counted. Do not change the headings in the form body; the site reads
+        them. This is for ratings only: for a bug, use **Report an issue** on the package page.
   - type: dropdown
     id: package
     attributes:
