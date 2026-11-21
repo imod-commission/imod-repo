@@ -4,7 +4,8 @@ built site (the _site copies, never the committed files).
 
 For every <site>/depictions/<package id>/ it patches
   depiction.json  (Details tab): a Rating section with a DepictionRatingView (only with votes), the
-                  table rows "Rating" and "Downloads", and the buttons "Rate this package" and
+                  table rows "Rating" and "Downloads", a "Source code" button (the entry's "source" in
+                  data/package-repos.json, none without one) and the buttons "Rate this package" and
                   "Report an issue" (where the package's entry in data/package-repos.json says)
   index.html      the same, at the markers <!--ratings:summary-->, <!--ratings:rows--> and
                   <!--ratings:links--> (a page without a marker is left as it is, with a warning)
@@ -30,6 +31,7 @@ RATING_TITLE = "Rating"
 DOWNLOADS_TITLE = "Downloads"
 RATE_TITLE = "Rate this package"
 REPORT_TITLE = "Report an issue"
+SOURCE_TITLE = "Source code"
 RATE_NOTE = "One vote per GitHub account; a new vote shows after the next site update (a few minutes)."
 DL_NOTE = ("Downloads: how often this package's files were downloaded from its GitHub releases, plus the "
            "total carried over from the previous source. Installs from this source itself are not counted.")
@@ -84,6 +86,12 @@ def urls(repo, pid, repos):
     return rate, report
 
 
+def source_url(pid, repos):
+    """The package's open-source repository (https only), or None."""
+    s = (repos.get(pid) or {}).get("source")
+    return s if isinstance(s, str) and s.startswith("https://") else None
+
+
 def stars(mean):
     full = max(0, min(5, int(round(mean))))
     return "★" * full + "☆" * (5 - full)
@@ -117,6 +125,11 @@ def patch_json(dep, pid, entry, dl, repo, repos):
     else:
         views[last + 1:last + 1] = rows
     # 3. buttons at the end
+    source = source_url(pid, repos)
+    if source:  # right after the table rows, as a plain button like any hand-written source link
+        at = max(i for i, v in enumerate(views) if v.get("class") == "DepictionTableTextView") + 1
+        views.insert(at, {"class": "DepictionTableButtonView", "title": SOURCE_TITLE, "action": source,
+                          "openExternal": 1})
     views.append({"class": "DepictionSeparatorView"})
     views.append({"class": "DepictionTableButtonView", "title": RATE_TITLE, "action": rate_url, "openExternal": 1})
     if report_url:
@@ -136,7 +149,11 @@ def patch_html(text, pid, entry, dl, repo, repos, where=""):
     dtext = downloads_text(dl)
     if dtext is not None:
         rows += "<tr><td>%s</td><td>%s</td></tr>" % (e(DOWNLOADS_TITLE), e(dtext))
-    links = '<p><a class="btn" href="%s">%s</a>' % (e(rate_url, quote=True), e(RATE_TITLE))
+    links = ""
+    source = source_url(pid, repos)
+    if source:
+        links += '<p><a href="%s">%s</a></p>\n' % (e(source, quote=True), e(SOURCE_TITLE))
+    links += '<p><a class="btn" href="%s">%s</a>' % (e(rate_url, quote=True), e(RATE_TITLE))
     if report_url:
         links += ' <a href="%s">%s</a>' % (e(report_url, quote=True), e(REPORT_TITLE))
     links += '</p><p class="mut"><em>%s</em></p>' % e(note_text(dl, repos, pid))

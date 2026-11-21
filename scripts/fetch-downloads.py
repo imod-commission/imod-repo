@@ -8,12 +8,15 @@ Reads
   * the releases of those repositories (GitHub REST API, public data, GITHUB_TOKEN only raises the
     rate limit)
 
-For every package with a repository it adds the download_count of every release asset named
-<package id>_*.deb (all releases, all versions, drafts skipped). This is what is counted: how often
-the release FILES were downloaded from GitHub. Installs from this source's own index are served by
-GitHub Pages, which has no counter, so they are NOT counted.
+For every package with a repository it adds the download_count of every release asset (all releases,
+all versions, drafts skipped) whose name is the name of a file in debs/: <package id>_<version>_<arch>.deb.
+These are the files the index points installs at (scripts/release-filenames.py), so the number follows
+the files Sileo installs. It also counts direct downloads of those files from the release page, which
+GitHub cannot tell apart. Release assets that are not in debs/ (an old version kept only on GitHub) are
+not counted: nothing in the index points at them. Installs from packages without a release file come
+from GitHub Pages, which has no counter, so they are NOT counted.
 
-Writes a JSON file (never committed; patch-depictions.py reads it) with, per package id,
+Standard library only. Writes a JSON file (never committed; patch-depictions.py reads it) with, per package id,
   total      baseline + releases (or only the one that is known; null when neither is)
   baseline   the carried-over number (or null)
   releases   the sum of release asset downloads (null when not read: no repository, or API error)
@@ -21,9 +24,10 @@ Writes a JSON file (never committed; patch-depictions.py reads it) with, per pac
 A repository that cannot be read (network, rate limit, 404) only gives a warning: that package
 falls back to the baseline and the exit code stays 0, the deploy must not fail for it.
 
-Standard library only. Usage:
+Usage:
   fetch-downloads.py --out downloads.json [--releases-dir DIR] [--api URL]
                      [--baseline data/yourepo-baseline.json] [--repos data/package-repos.json]
+                     [--debs debs]
 --releases-dir DIR reads DIR/<owner>__<name>.json (a releases API answer) instead of the API (tests).
 """
 import argparse
@@ -64,15 +68,15 @@ def fetch_releases(api, repo, token):
     return releases
 
 
-def count_assets(releases, pid):
-    """(sum of download_count, number of assets) of the assets named <pid>_*.deb."""
+def count_assets(releases, pid, deb_names):
+    """(sum of download_count, number of assets) of the assets named <pid>_*.deb that are a file of debs/."""
     total, n = 0, 0
     for rel in releases:
         if rel.get("draft"):
             continue
         for a in rel.get("assets") or []:
             name = a.get("name") or ""
-            if name.startswith(pid + "_") and name.endswith(".deb"):
+            if name.startswith(pid + "_") and name in deb_names:
                 total += int(a.get("download_count") or 0)
                 n += 1
     return total, n
@@ -82,6 +86,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--baseline", default=os.path.join(ROOT, "data", "yourepo-baseline.json"))
     ap.add_argument("--repos", default=os.path.join(ROOT, "data", "package-repos.json"))
+    ap.add_argument("--debs", default=os.path.join(ROOT, "debs"), help="the folder of the index's files")
     ap.add_argument("--api", default="https://api.github.com")
     ap.add_argument("--releases-dir", help="read releases from DIR/<owner>__<name>.json (tests)")
     ap.add_argument("--out", default="-")
@@ -89,6 +94,7 @@ def main():
 
     baseline = json.load(open(args.baseline, encoding="utf-8")).get("packages") or {}
     repos = json.load(open(args.repos, encoding="utf-8")).get("packages") or {}
+    deb_names = {n for n in os.listdir(args.debs) if n.endswith(".deb")}
     token = os.environ.get("GITHUB_TOKEN")
 
     cache = {}  # repo -> releases list, or None when unreadable
@@ -110,7 +116,7 @@ def main():
                     warn("could not read the releases of %s (%s); %s keeps its carried-over number"
                          % (repo, e, pid))
             if cache[repo] is not None:
-                rel_total, n_assets = count_assets(cache[repo], pid)
+                rel_total, n_assets = count_assets(cache[repo], pid, deb_names)
         known = [x for x in (b, rel_total) if x is not None]
         packages[pid] = {
             "total": sum(known) if known else None,

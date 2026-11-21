@@ -1,16 +1,19 @@
 {
-  "comment": "Where each package's source lives and where its \"Report an issue\" button goes. Read by scripts/fetch-downloads.py (release download counts), scripts/patch-depictions.py (the report button) and scripts/fetch-ratings.py. Every repo below was checked on 2026-11-21 against https://api.github.com/users/imod-commission/repos, and the .deb files attached to its releases are byte-identical to debs/. repo: the GitHub repository (owner/name) whose releases carry the package's .deb files, or null when there is none. report: where the button leads. \"repo\" = https://github.com/<repo>/issues/new (the tweak's own issue tracker, needs Issues enabled there); \"imod-repo\" = the bug-report.yml form of this repository (for packages without a usable tracker of their own); \"none\" = no button. To move a package to its own tracker later, set report to \"repo\" (and repo, if it was null).",
+  "comment": "Where each package's source lives and where its \"Report an issue\" button goes. Read by scripts/fetch-downloads.py (release download counts), scripts/patch-depictions.py (the report button) and scripts/fetch-ratings.py. Every repo below was checked on 2026-11-21 against https://api.github.com/users/imod-commission/repos, and the .deb files attached to its releases are byte-identical to debs/. source: the open-source repository the \"Source code\" link on the package page points to (absent = no link: the source of HideLSClock is lost, Liquid Glass has no repository found and RounderLS is closed third-party; never guessed). repo: the GitHub repository (owner/name) whose releases carry the package's .deb files, or null when there is none. report: where the button leads. \"repo\" = https://github.com/<repo>/issues/new (the tweak's own issue tracker, needs Issues enabled there); \"imod-repo\" = the bug-report.yml form of this repository (for packages without a usable tracker of their own); \"none\" = no button. To move a package to its own tracker later, set report to \"repo\" (and repo, if it was null).",
   "packages": {
     "com.imodcommission.26page": {
       "repo": "imod-commission/26Page",
+      "source": "https://github.com/imod-commission/26Page",
       "report": "repo"
     },
     "com.imodcommission.ersatz": {
       "repo": "imod-commission/Ersatz",
+      "source": "https://github.com/imod-commission/Ersatz",
       "report": "repo"
     },
     "com.imodcommission.griddy": {
       "repo": "imod-commission/griddy",
+      "source": "https://github.com/imod-commission/griddy",
       "report": "imod-repo",
       "reportNote": "imod-commission/griddy is a fork with Issues turned off (issues/new answers 404), so reports go to this repository. Enable Issues there and set report to repo to switch."
     },
@@ -20,6 +23,7 @@
     },
     "com.imodcommission.iconsizefix": {
       "repo": "imod-commission/iconsizefix",
+      "source": "https://github.com/imod-commission/iconsizefix",
       "report": "repo"
     },
     "com.imodcommission.liquidglasstheme": {
@@ -28,14 +32,17 @@
     },
     "com.imodcommission.movesleepalarm": {
       "repo": "imod-commission/movesleepalarm",
+      "source": "https://github.com/imod-commission/movesleepalarm",
       "report": "repo"
     },
     "com.imodcommission.nig": {
       "repo": "imod-commission/Nig",
+      "source": "https://github.com/imod-commission/Nig",
       "report": "repo"
     },
     "com.imodcommission.notifyyy": {
       "repo": "imod-commission/notifyyy",
+      "source": "https://github.com/imod-commission/notifyyy",
       "report": "repo"
     },
     "com.azzou.rounderls": {
