@@ -37,8 +37,10 @@ IconSizeFix is offered only as the `iphoneos-arm64` (rootless) build 1.1. There 
 | `scripts/patch-depictions.py` | At build time: adds the Rating and Downloads rows and the Rate / Report an issue buttons to the **copies** of the depictions in `_site` (the committed files stay as they are) |
 | `scripts/close-rating-issues.py` | After the count: thanks and closes each valid rating issue that is still open |
 | `data/yourepo-baseline.json` | The numbers carried over from the old source (votes and download totals): the starting values the live numbers are added to |
-| `data/package-repos.json` | Per package id: its source repository (for release downloads) and where **Report an issue** goes |
+| `data/package-repos.json` | Per package id: its repository (for release downloads), its `source` (the **Source code** link, added by the build to both depictions; none for HideLSClock, Liquid Glass and RounderLS) and where **Report an issue** goes |
 | `.github/ISSUE_TEMPLATE/` | The rating form (`rate-package.yml`), the bug-report form for packages without a tracker of their own (`bug-report.yml`) and the chooser setting (`config.yml`, blank issues off) |
+| `data/release-filenames.json` | The explicit overrides: a package version whose index `Filename` is its GitHub release asset instead of `debs/` (checked by size and SHA256 at build time). Currently 26Page 1.0.0 only |
+| `scripts/override-filenames.py` | At build time: rewrites the `Filename` of those entries only, and fails the build if the asset is not the file in `debs/` |
 | `scripts/check-site-links.py` | Build check: every local `href`/`src` of the home page and the depictions in `_site` must resolve to a file |
 | `scripts/inject-metadata.py` | Adds `Depiction`, `SileoDepiction` and `Icon` to each package entry of the index (the old debs do not carry them) and fills a missing `Name`, `Maintainer`, `Author` or `Section` |
 | `.github/workflows/update-repository.yml` | On every push to `main`, when a rating issue changes, once a day and by hand: runs the script, closes the counted rating issues and publishes the result to GitHub Pages. Needs `issues: write` |
@@ -125,6 +127,20 @@ the download counts of the package's files on GitHub Releases**. It is honest ab
   previous source's own hosting, not from GitHub, so the two are separate downloads and are added.
   The IconSizeFix release also carries an older `0.1.0` file that is no longer in `debs/`; its
   downloads are counted too.
+
+## Download test (release-asset Filename)
+
+Only 26Page 1.0.0 (`iphoneos-arm64`) uses this for now, listed in `data/release-filenames.json`. Its index
+entry's `Filename` is the GitHub release asset `https://github.com/imod-commission/26Page/releases/download/1.0/com.imodcommission.26page_1.0.0_iphoneos-arm64.deb`
+instead of `debs/...`. The asset is the same file as `debs/` (the build checks size and SHA256 and fails
+if they differ). Size, SHA256 and the other fields are unchanged. Every other package stays on `debs/`.
+
+- Sileo is meant to download that `.deb` from the GitHub release, so GitHub counts those downloads
+  (they are part of 26Page's Downloads).
+- A direct download from the release page is counted too: GitHub cannot tell the two apart.
+- Whether Sileo accepts an absolute `Filename` is **untested**. It is confirmed only when someone adds this
+  source and installs 26Page from it. If Sileo refuses it, delete the entry in `data/release-filenames.json`;
+  the next build puts the package back on `debs/`.
 
 ## Report an issue
 

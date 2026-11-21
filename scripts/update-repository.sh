@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Builds the site in _site/: copies the static files and debs/, indexes debs/ with
-# apt-ftparchive into Packages, Packages.gz, Packages.xz and Release (a flat repository:
-# the indexes sit at the site root and every Filename is debs/<file>.deb).
+# apt-ftparchive into Packages, Packages.gz, Packages.xz and Release (a flat repository: the indexes
+# sit at the site root). Each Filename is debs/<file>.deb, except the packages listed in
+# data/release-filenames.json, whose Filename is their GitHub release asset (checked to be the same file).
 # Run by .github/workflows/update-repository.yml on every push to main; it can be run by
 # hand too. It never changes a .deb and writes nothing outside the output folder.
 set -euo pipefail
@@ -35,6 +36,12 @@ touch "$OUT/.nojekyll"
 cd "$OUT"
 # 1. Index. The relative path "debs" gives Filename: debs/<file>.deb.
 apt-ftparchive packages debs > Packages.raw
+# 1b. Point Filename at the GitHub release asset of each package listed in data/release-filenames.json.
+# The asset's size and SHA256 must equal debs/<file>'s, or the build fails (scripts/override-filenames.py).
+# Before the hashes below, so Packages, Packages.gz, Packages.xz and Release agree. Every other
+# Filename stays debs/<file>.deb.
+python3 "$ROOT/scripts/override-filenames.py" "$ROOT" < Packages.raw > Packages.pointed
+mv Packages.pointed Packages.raw
 # 2. Add Depiction/SileoDepiction/Icon and fill what old debs lack.
 python3 "$ROOT/scripts/inject-metadata.py" "$SITE_URL" "$ROOT/depictions" < Packages.raw > Packages
 rm -f Packages.raw
@@ -76,6 +83,13 @@ rm -f "$ratings_json" "$downloads_json"
 
 # 4. Sanity checks: fail the build rather than publish a broken source.
 test -s Packages && test -s Packages.xz && test -s Release
+# Every Filename is a debs/ path or an address of a release asset of this owner.
+bad_fn="$(grep '^Filename: ' Packages | grep -v -E '^Filename: (debs/|https://github\.com/imod-commission/)' || true)"
+if [ -n "$bad_fn" ]; then
+  echo "error: Filename outside debs/ and imod-commission release downloads:" >&2
+  echo "$bad_fn" >&2
+  exit 1
+fi
 # The source's icon sits at the site root (package managers read /CydiaIcon.png): a square PNG.
 python3 - <<'PY'
 import struct, sys
