@@ -1,0 +1,55 @@
+{
+  "class": "DepictionTabView",
+  "minVersion": "0.4",
+  "tintColor": "#5E7CE2",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionHeaderView",
+          "title": "Description"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "**Night mode for unsupported apps and websites!**\n\nNight mode for apps and websites that do not have a dark theme. Nig follows the system appearance: when iOS is in Dark mode it recolours UIKit apps and the web pages shown in Safari, in-app browsers and web views. In Light mode it does nothing.\n\nDark colours become a lighter shade of the same hue, photos and QR codes are left alone.\n\nExclude a single app with Choicy, or a website in the Nig settings pane (Settings ▸ Nig ▸ Excluded sites).\n\nNig cannot recolour apps that draw their own UI (Flutter, games, some cross-platform apps) and it does not work in every app: some will look wrong or be left unchanged. Turn Nig off for that app or site if that happens.\n\nPackages for rootless (iphoneos-arm64) and roothide (iphoneos-arm64e) jailbreaks. Requires iOS 16.0 or later, MobileSubstrate and PreferenceLoader.",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionHeaderView",
+          "title": "Information"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Version",
+          "text": "1.0.0"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Author",
+          "text": "imod_commission"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Section",
+          "text": "Tweaks"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "License",
+          "text": "MIT"
+        },
+        {
+          "class": "DepictionTableButtonView",
+          "title": "Source code",
+          "action": "https://github.com/imod-commission/Nig",
+          "openExternal": 1
+        }
+      ]
+    }
+  ]
+}

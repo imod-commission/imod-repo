@@ -1,0 +1,76 @@
+{
+  "class": "DepictionTabView",
+  "minVersion": "0.4",
+  "tintColor": "#5E7CE2",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionHeaderView",
+          "title": "Description"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "iOS 26 styled Liquid Glass dock and icon masks",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionHeaderView",
+          "title": "Rating"
+        },
+        {
+          "class": "DepictionRatingView",
+          "rating": 4.33,
+          "alignment": 1
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "*Ratings carried over from YouRepo (2026-11-21): 4.33 from 3 votes. These are anonymous star votes; this source cannot collect new votes. YouRepo listed the arm64 and arm builds as two packages; downloads and votes are added together.*",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionHeaderView",
+          "title": "Information"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Version",
+          "text": "1.0"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Author",
+          "text": "imod_commission"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Section",
+          "text": "Themes"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "License",
+          "text": "Free"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Downloads (YouRepo, as of 2026-11-21)",
+          "text": "396"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "*Downloads: 343 (arm64) + 53 (arm).*",
+          "useSpacing": true
+        }
+      ]
+    }
+  ]
+}

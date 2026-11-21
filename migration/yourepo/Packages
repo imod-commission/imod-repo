@@ -1,0 +1,151 @@
+Package: com.yourepo.imod.26page
+Architecture: iphoneos-arm64
+Name: 26Page
+Version: 1.0.0
+Description: Makes page scrolling same as iOS 26
+Author: imod_commission
+Section: Tweaks
+Depends: mobilesubstrate
+Size: 8372
+Maintainer: imod_commission
+Md5sum: 7610483f19b72fb72bd57c42d91ca473
+SHA256: e85fcb035cc9bdf0df4188f9359bb293be969d2d62fbb0dcb8a91386cc39e6e9
+Depiction: https://imod.yourepo.com/pack/26page
+SileoDepiction: https://imod.yourepo.com/sileo/depiction/26page
+Filename: debs/26page_1.0.0_iphoneos-arm64.deb
+Icon: https://cdn-static.yourepo.com/images/sections/users/33.png
+
+Package: com.yourepo.imod.ersatz
+Architecture: iphoneos-arm64e
+Name: Ersatz Reborn
+Version: 2.3.1
+Description: Replace any text, system-wide!Fork of Ersatz by Skitty, updated for roothide and extended..Features:- RootHide support- Search bar (matches phrase and replacement)- Longest-phrase-first replacement order- Adaptive label sizing (widen first, then shrink font)- Per-rule app whitelist / blacklist (with app picker + search)- English, Traditional/Simplified Chinese, Japanese localizations
+Author: Skitty, TweakDev22, imod_commission
+Section: Tweaks
+Depends: mobilesubstrate, preferenceloader, firmware (>= 15.0)
+Size: 60134
+Maintainer: imod_commission
+Md5sum: 2541ee7334371ab7bf9e4d32e0cb5d19
+SHA256: a0bc37859e8b2b1094b3f176b0043724f765a5b1ce1b93c84ded94fe8257025b
+Depiction: https://imod.yourepo.com/pack/ersatz
+SileoDepiction: https://imod.yourepo.com/sileo/depiction/ersatz
+Filename: debs/ersatz_2.3.1_iphoneos-arm64e.deb
+Icon: https://skitty.xyz/repo/icons/xyz.skitty.ersatz.png
+
+Package: com.yourepo.imod.griddy
+Architecture: iphoneos-arm64
+Name: Griddy
+Version: 1.1.6
+Description: Layout your icons anywhere you want! Fixed issues for icon themes, folder icons, and app library.
+Author: mikifp, imod_commission
+Section: Tweaks
+Depends: mobilesubstrate
+Size: 26564
+Maintainer: mikifp, imod_commission
+Md5sum: 120939983457a1583fece59e8f7a052e
+SHA256: c99278f18365fb6d1dc5894cf2d596806fdbe469ed0cd5ce51c9a21748157c76
+Depiction: https://imod.yourepo.com/pack/griddy
+SileoDepiction: https://imod.yourepo.com/sileo/depiction/griddy
+Filename: debs/griddy_1.1.6_iphoneos-arm64.deb
+Icon: https://cdn-static.yourepo.com/images/sections/users/33.png
+
+Package: com.yourepo.imod.hidelsclock
+Architecture: iphoneos-arm64
+Name: Hide LS Clock
+Version: 0.1
+Description: An awesome MobileSubstrate tweak!
+Author: imod_commission
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000)
+Size: 3598
+Maintainer: imod_commission
+Md5sum: 9f97a8d834eb6c2578a928b07042a2ad
+SHA256: 6e9f3f66b4a47b91e513e89b4e01aec81018e96835dc7630024c83dd5bd1246d
+Depiction: https://imod.yourepo.com/pack/hidelsclock
+SileoDepiction: https://imod.yourepo.com/sileo/depiction/hidelsclock
+Filename: debs/hidelsclock_0.1_iphoneos-arm64.deb
+Icon: https://cdn-static.yourepo.com/images/sections/users/33.png
+
+Package: com.yourepo.imod.iconsizefix
+Architecture: iphoneos-arm64
+Name: IconSizeFix
+Version: 1.1
+Description: Adjusts icon sizes etc
+Author: imod_commission
+Section: Tweaks
+Depends: mobilesubstrate
+Size: 12100
+Maintainer: imod_commission
+Md5sum: f2b6ae18d5c68c5bdda6de8702cec69a
+SHA256: 82989a54503e64b16840f640446d0f7f3c7a85b851af812453001c574501ad98
+Depiction: https://imod.yourepo.com/pack/iconsizefix
+SileoDepiction: https://imod.yourepo.com/sileo/depiction/iconsizefix
+Filename: debs/iconsizefix_1.1_iphoneos-arm64.deb
+Icon: https://cdn-static.yourepo.com/images/sections/users/33.png
+
+Package: com.yourepo.imod.liquidglass
+Architecture: iphoneos-arm64
+Name: Liquid Glass
+Version: 1.0
+Description: iOS 26 styled Liquid Glass dock and icon masks
+Author: imod_commission
+Section: Themes
+Size: 623496
+Maintainer: imod_commission
+Md5sum: bdab7918eed4a9d1b21af8a874d3e4a8
+SHA256: 8717eaa3c0698fbb0255b2d21fececdc41ae5d3fbffe2f7f317ab8a085fe5902
+Depiction: https://imod.yourepo.com/pack/liquidglass
+SileoDepiction: https://imod.yourepo.com/sileo/depiction/liquidglass
+Filename: debs/liquidglass_1.0_iphoneos-arm64.deb
+Icon: https://cdn-static.yourepo.com/images/sections/users/31.png
+
+Package: com.yourepo.imod.liquidglass1
+Architecture: iphoneos-arm
+Name: Liquid Glass
+Version: 1.0
+Description: iOS 26 styled Liquid Glass dock and icon masks
+Author: imod_commission
+Section: Themes
+Size: 623472
+Maintainer: imod_commission
+Md5sum: 41e09486111091f4f31e44ad2de2b201
+SHA256: 2c0ddcc4c8fd62bc5a5c7fa4272d3de3ab8bf23d70e9e0b49a92485e224b1297
+Depiction: https://imod.yourepo.com/pack/liquidglass1
+SileoDepiction: https://imod.yourepo.com/sileo/depiction/liquidglass1
+Filename: debs/liquidglass1_1.0_iphoneos-arm.deb
+Icon: https://cdn-static.yourepo.com/images/sections/users/31.png
+
+Package: com.yourepo.imod.movesleepalarm
+Architecture: iphoneos-arm64
+Name: MoveSleepAlarm
+Version: 1.0.0
+Description: 实时调整锁屏睡眠闹钟Y轴偏移 (RootHide)
+Author: imod_commission
+Section: Tweaks
+Depends: mobilesubstrate, preferenceloader
+Size: 9408
+Maintainer: imod_commission
+Md5sum: e9fdba953fe96ff5a9b4cf7855d03bf3
+SHA256: 0c0c019b947900aff7e7bad209dfbc8eb146d6ca1da417740677b134fc1e2da5
+Depiction: https://imod.yourepo.com/pack/movesleepalarm
+SileoDepiction: https://imod.yourepo.com/sileo/depiction/movesleepalarm
+Filename: debs/movesleepalarm_1.0.0_iphoneos-arm64.deb
+Icon: https://cdn-static.yourepo.com/images/sections/users/33.png
+
+Package: com.yourepo.imod.notifyyy
+Architecture: iphoneos-arm64e
+Name: notifyyy
+Version: 1.0.0
+Description: 只控制直屏（竖屏）通知横幅的上下位置，横屏不干预
+Author: imod_commission
+Section: Tweaks
+Depends: firmware (>= 14.0), mobilesubstrate, preferenceloader
+Size: 7472
+Maintainer: imod_commission
+Md5sum: 205d626f2b062a63ab0bf3feeb8657e0
+SHA256: 3d74a29dd81c05a106d7d4d1c7a432ca754d8c1a6d458506f6f76554529644a5
+Depiction: https://imod.yourepo.com/pack/notifyyy
+SileoDepiction: https://imod.yourepo.com/sileo/depiction/notifyyy
+Filename: debs/notifyyy_1.0.0_iphoneos-arm64e.deb
+Icon: https://cdn-static.yourepo.com/images/sections/users/33.png
+

@@ -1,0 +1,86 @@
+{
+  "class": "DepictionTabView",
+  "minVersion": "0.4",
+  "tintColor": "#5E7CE2",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionHeaderView",
+          "title": "Description"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "Adjusts icon sizes etc\n\n独立调整图标大小 / 隐藏 App 与小组件名称（roothide 兼容）\n\nNote: in this source the newest build, 1.1, is iphoneos-arm64 only. The iphoneos-arm64e build is the older 0.1.0.",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionHeaderView",
+          "title": "Rating"
+        },
+        {
+          "class": "DepictionRatingView",
+          "rating": 4.0,
+          "alignment": 1
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "*Ratings carried over from YouRepo (2026-11-21): 4.0 from 1 vote. These are anonymous star votes; this source cannot collect new votes.*",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionHeaderView",
+          "title": "Information"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Version",
+          "text": "1.1"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Author",
+          "text": "imod_commission"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Section",
+          "text": "Tweaks"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "License",
+          "text": "Free"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Downloads (YouRepo, as of 2026-11-21)",
+          "text": "78"
+        }
+      ]
+    },
+    {
+      "tabname": "Changelog",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionSubheaderView",
+          "title": "1.1"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- fixed crash when opening widget then returning to Home Screen\n- fixed version scheming\n- updated for rootless",
+          "useSpacing": true
+        }
+      ]
+    }
+  ]
+}

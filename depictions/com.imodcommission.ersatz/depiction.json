@@ -1,0 +1,136 @@
+{
+  "class": "DepictionTabView",
+  "minVersion": "0.4",
+  "tintColor": "#5E7CE2",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionScreenshotsView",
+          "itemCornerRadius": 9,
+          "itemSize": "{232, 440}",
+          "screenshots": [
+            {
+              "url": "https://imod-commission.github.io/imod-repo/depictions/com.imodcommission.ersatz/screenshots/1.jpg",
+              "accessibilityText": "Screenshot"
+            },
+            {
+              "url": "https://imod-commission.github.io/imod-repo/depictions/com.imodcommission.ersatz/screenshots/2.jpg",
+              "accessibilityText": "Screenshot"
+            },
+            {
+              "url": "https://imod-commission.github.io/imod-repo/depictions/com.imodcommission.ersatz/screenshots/3.jpg",
+              "accessibilityText": "Screenshot"
+            }
+          ]
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionHeaderView",
+          "title": "Description"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "Replace any text, system-wide!\n\nFork of Ersatz by Skitty, updated for roothide and extended.\n\nFeatures:\n- RootHide support\n- Search bar (matches phrase and replacement)\n- Longest-phrase-first replacement order\n- Adaptive label sizing (widen first, then shrink font)\n- Whole-word replacement\n- Per-rule app whitelist / blacklist (with app picker + search)\n- Exact-match replacement\n- English, Traditional/Simplified Chinese, Japanese localizations\n- Logging",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionHeaderView",
+          "title": "Information"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Version",
+          "text": "2.3.1"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Author",
+          "text": "Skitty, TweakDev22, imod_commission"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Section",
+          "text": "Tweaks"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "License",
+          "text": "Free"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Downloads (YouRepo, as of 2026-11-21)",
+          "text": "57"
+        }
+      ]
+    },
+    {
+      "tabname": "Changelog",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionSubheaderView",
+          "title": "2.3.1"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- renamed to ersatz reborn\n- fixed replacement looping",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "2.3"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- Exact-match replacement",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "2.2"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- whole-word replacement and prefs cleanup",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "2.1.1"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- able to search for system apps",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "2.1"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- fix issues for liquidass\n- logs available at `jbroot/var/mobile/Library/Logs/Ersatz.log`",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "2.0"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- Initial release",
+          "useSpacing": true
+        }
+      ]
+    }
+  ]
+}

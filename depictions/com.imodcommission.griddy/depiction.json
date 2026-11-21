@@ -1,0 +1,87 @@
+{
+  "class": "DepictionTabView",
+  "minVersion": "0.4",
+  "tintColor": "#5E7CE2",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionHeaderView",
+          "title": "Description"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "Layout your icons anywhere you want! Fixed issues for icon themes, folder icons, and app library.",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionHeaderView",
+          "title": "Information"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Version",
+          "text": "1.1.6"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Author",
+          "text": "mikifp, imod_commission"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Section",
+          "text": "Tweaks"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "License",
+          "text": "Free"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Downloads (YouRepo, as of 2026-11-21)",
+          "text": "180"
+        }
+      ]
+    },
+    {
+      "tabname": "Changelog",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionSubheaderView",
+          "title": "1.1.6"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- Completely fix App Library",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "1.1.5"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- Fixed some crashing bugs",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "1.1"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- initial release",
+          "useSpacing": true
+        }
+      ]
+    }
+  ]
+}

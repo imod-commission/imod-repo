@@ -1,0 +1,8 @@
+Origin: imod Source - YouRepo
+Label: imod Source - YouRepo
+Suite: stable
+Version: 1.0
+Codename: ios
+Architectures: appletvos-arm appletvos-arm64 darwin-arm darwin-arm64 iphoneos-arm iphoneos-arm64 iphoneos-arm64e watchos-arm
+Components: main
+Description: 
