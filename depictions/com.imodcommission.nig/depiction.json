@@ -42,12 +42,6 @@
           "class": "DepictionTableTextView",
           "title": "License",
           "text": "MIT"
-        },
-        {
-          "class": "DepictionTableButtonView",
-          "title": "Source code",
-          "action": "https://github.com/imod-commission/Nig",
-          "openExternal": 1
         }
       ]
     },
