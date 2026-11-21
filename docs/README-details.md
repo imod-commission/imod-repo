@@ -37,7 +37,6 @@ IconSizeFix is offered only as the `iphoneos-arm64` (rootless) build 1.1. There 
 | `scripts/patch-depictions.py` | At build time: adds the Rating and Downloads rows and the Rate / Report an issue buttons to the **copies** of the depictions in `_site` (the committed files stay as they are) |
 | `scripts/close-rating-issues.py` | After the count: thanks and closes each valid rating issue that is still open |
 | `data/yourepo-baseline.json` | The numbers carried over from the old source (votes and download totals): the starting values the live numbers are added to |
-| `data/package-repos.json` | Per package id: its repository (for release downloads), its `source` (the **Source code** link, added by the build to both depictions; none for HideLSClock, Liquid Glass and RounderLS) and where **Report an issue** goes |
 | `.github/ISSUE_TEMPLATE/` | The rating form (`rate-package.yml`), the bug-report form for packages without a tracker of their own (`bug-report.yml`) and the chooser setting (`config.yml`, blank issues off) |
 | `data/release-filenames.json` | The explicit overrides: a package version whose index `Filename` is its GitHub release asset instead of `debs/` (checked by size and SHA256 at build time). Currently 26Page 1.0.0 only |
 | `scripts/override-filenames.py` | At build time: rewrites the `Filename` of those entries only, and fails the build if the asset is not the file in `debs/` |
