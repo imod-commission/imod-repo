@@ -1,6 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>imod repo – iOS package source</title><link rel="icon" href="CydiaIcon.png"><link rel="apple-touch-icon" href="CydiaIcon.png"><style>
-:root{color-scheme:light dark;--fg:#1c1c1e;--bg:#fff;--mut:#6c6c70;--card:#f2f2f7;--tint:#3f5fd0}
-@media(prefers-color-scheme:dark){:root{--fg:#f2f2f7;--bg:#000;--mut:#98989d;--card:#1c1c1e;--tint:#8da2f5}}
+:root{color-scheme:dark;--fg:#edf7f1;--bg:#0b2b1e;--mut:#afc7b8;--card:#174331;--tint:#79d9a5}
 body{font:16px/1.5 -apple-system,system-ui,sans-serif;color:var(--fg);background:var(--bg);margin:0;padding:16px;max-width:680px;margin:0 auto}
 a{color:var(--tint)}h1{margin:.2em 0}h2{font-size:1.1em;margin:1.6em 0 .4em;border-bottom:1px solid var(--card)}
 .head{display:flex;gap:14px;align-items:center}.head img{width:64px;height:64px;border-radius:14px}
@@ -9,10 +8,11 @@ a{color:var(--tint)}h1{margin:.2em 0}h2{font-size:1.1em;margin:1.6em 0 .4em;bord
 .card{background:var(--card);border-radius:10px;padding:10px 14px}code{background:var(--card);padding:0 4px;border-radius:4px}
 .list a{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--card);text-decoration:none;color:inherit}
 .list img,.list .noicon{width:44px;height:44px;border-radius:10px;flex:none;background:var(--card)}
-.btn{display:inline-block;background:var(--tint);color:var(--bg);padding:8px 16px;border-radius:10px;text-decoration:none;font-weight:600}
+.btn{display:inline-block;background:var(--tint);color:#0b2b1e;padding:8px 16px;border-radius:10px;text-decoration:none;font-weight:600}
+.add-links{display:flex;flex-wrap:wrap;gap:10px}
 </style></head><body>
 <div class="head"><img src="CydiaIcon.png" alt="imod repo"><div><h1>imod repo</h1><div class="mut">Tweaks by imod_commission</div></div></div>
-<p><a class="btn" href="sileo://source/https://imod-commission.github.io/imod-repo/">Add to Sileo</a></p>
+<div class="add-links"><a class="btn" href="sileo://source/https://imod-commission.github.io/imod-repo/">Add to Sileo</a><a class="btn" href="zbra://sources/add/https://imod-commission.github.io/imod-repo/">Add to Zebra</a><a class="btn" href="irisin://repository/add?url=https%3A%2F%2Fimod-commission.github.io%2Fimod-repo%2F">Add to Irisin</a></div>
 <p>Source URL (Sileo, Zebra, Irisin, Cydia…): <code>https://imod-commission.github.io/imod-repo/</code></p>
 <p class="card">If you installed these from the old imod source, remove the old package first: the IDs changed to <code>com.imodcommission.*</code>, so the old and new packages are different packages and would conflict.</p>
 <h2>Packages</h2><div class="list">
@@ -27,5 +27,5 @@ a{color:var(--tint)}h1{margin:.2em 0}h2{font-size:1.1em;margin:1.6em 0 .4em;bord
 <a href="depictions/com.imodcommission.notifyyy/"><img src="depictions/com.imodcommission.notifyyy/icon.png" alt=""><div><strong>notifyyy</strong> <span class="mut">1.0.0 · Tweaks</span><br><span class="mut">只控制直屏（竖屏）通知横幅的上下位置，横屏不干预</span></div></a>
 <a href="depictions/com.azzou.rounderls/"><span class="noicon"></span><div><strong>RounderLS</strong> <span class="mut">1.5-6+debug · Tweaks</span><br><span class="mut">Third-party package by Azzou, included as it is. A little tweak to make your LockScreen rounder! 下拉通知圆角</span></div></a>
 </div>
-<p class="mut">Ratings on the package pages come from votes cast as GitHub issues (one vote per GitHub account, through the <em>Rate this package</em> button on each package page; a new vote shows after the next site update, a few minutes), plus the votes carried over from the previous source. Downloads are how often a package's files were downloaded from its GitHub releases, plus the total carried over from the previous source; installs from this source itself are not counted. Found a bug? Use <em>Report an issue</em> on the package page.</p>
+<p class="mut">Ratings on the package pages come from votes cast as GitHub issues (one vote per GitHub account, through the <em>Rate this package</em> button on each package page; a new vote shows after the next site update, a few minutes), plus the votes carried over from the previous source. Downloads count GitHub release asset downloads, including direct downloads from release pages, plus the total carried over from the previous source; downloads served by GitHub Pages are not counted. Found a bug? Use <em>Report an issue</em> on the package page.</p>
 </body></html>

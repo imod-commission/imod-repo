@@ -33,8 +33,8 @@ RATE_TITLE = "Rate this package"
 REPORT_TITLE = "Report an issue"
 SOURCE_TITLE = "Source code"
 RATE_NOTE = "One vote per GitHub account; a new vote shows after the next site update (a few minutes)."
-DL_NOTE = ("Downloads: how often this package's files were downloaded from its GitHub releases, plus the "
-           "total carried over from the previous source. Installs from this source itself are not counted.")
+DL_NOTE = ("Downloads: GitHub release asset downloads, including direct downloads from release pages, plus the "
+           "total carried over from the previous source. Downloads served by GitHub Pages are not counted.")
 DL_NOTE_NO_RELEASES = ("Downloads: the total carried over from the previous source; it does not grow, "
                        "because this source cannot count downloads.")
 
