@@ -1,0 +1,44 @@
+{
+  "class": "DepictionTabView",
+  "minVersion": "0.4",
+  "tintColor": "#5E7CE2",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionHeaderView",
+          "title": "Description"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "A little tweak to make your LockScreen rounder! 下拉通知圆角\n\n**This is a third-party package by Azzou. It was not made by imod_commission and is included in this source as it is, so there is no support or issue tracker for it here.**\n\nRequires MobileSubstrate, iOS 13 or later, libhbcommon (ws.hbang.common 1.16 or later) and rootless-compat.",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionHeaderView",
+          "title": "Information"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Version",
+          "text": "1.5-6+debug"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Author",
+          "text": "Azzou (third party)"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Section",
+          "text": "Tweaks"
+        }
+      ]
+    }
+  ]
+}

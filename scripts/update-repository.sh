@@ -86,6 +86,8 @@ w, h = struct.unpack(">II", d[16:24])
 if w != h or w < 128:
     sys.exit("error: CydiaIcon.png must be square and at least 128 px, is %dx%d" % (w, h))
 PY
+# Every image and link of the home page and the depictions must resolve inside the site.
+python3 "$ROOT/scripts/check-site-links.py" "$OUT"
 n_debs="$(ls debs/*.deb | wc -l | tr -d ' ')"
 n_pkgs="$(grep -c '^Package: ' Packages || true)"
 n_sec="$(grep -c '^Section: ' Packages || true)"
