@@ -13,24 +13,7 @@
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "Adjusts icon sizes etc\n\n独立调整图标大小 / 隐藏 App 与小组件名称（roothide 兼容）\n\nNote: in this source the newest build, 1.1, is iphoneos-arm64 only. The iphoneos-arm64e build is the older 0.1.0.",
-          "useSpacing": true
-        },
-        {
-          "class": "DepictionSeparatorView"
-        },
-        {
-          "class": "DepictionHeaderView",
-          "title": "Rating"
-        },
-        {
-          "class": "DepictionRatingView",
-          "rating": 4.0,
-          "alignment": 1
-        },
-        {
-          "class": "DepictionMarkdownView",
-          "markdown": "*Ratings carried over from YouRepo (2026-11-21): 4.0 from 1 vote. These are anonymous star votes; this source cannot collect new votes.*",
+          "markdown": "Adjusts icon sizes etc\n\n独立调整图标大小 / 隐藏 App 与小组件名称（roothide 兼容）\n\nOnly the iphoneos-arm64 (rootless) build, 1.1, is offered in this source. There is no RootHide (iphoneos-arm64e) build: RootHide users have to convert the rootless package themselves.",
           "useSpacing": true
         },
         {
@@ -59,11 +42,6 @@
           "class": "DepictionTableTextView",
           "title": "License",
           "text": "Free"
-        },
-        {
-          "class": "DepictionTableTextView",
-          "title": "Downloads (YouRepo, as of 2026-11-21)",
-          "text": "78"
         }
       ]
     },

@@ -55,6 +55,20 @@ apt-ftparchive \
   release "$idx" > Release
 rm -rf "$idx"
 
+# 3b. Ratings: combine the frozen YouRepo votes (data/yourepo-baseline.json) with the votes cast
+# as GitHub issues, and patch the COPIES of the depictions in the site (the committed files stay
+# as they are). If the issues cannot be read, fetch-ratings.py falls back to the baseline and
+# only warns. A failure here never stops the deploy: the unpatched depictions are still valid.
+ratings_json="$(mktemp)"
+if python3 "$ROOT/scripts/fetch-ratings.py" --out "$ratings_json" \
+   && python3 "$ROOT/scripts/patch-depictions.py" "$OUT" "$ratings_json"; then
+  :
+else
+  echo "warning: could not add ratings to the depictions; publishing them without" >&2
+  if [ -n "${GITHUB_ACTIONS:-}" ]; then echo "::warning::could not add ratings to the depictions"; fi
+fi
+rm -f "$ratings_json"
+
 # 4. Sanity checks: fail the build rather than publish a broken source.
 test -s Packages && test -s Packages.xz && test -s Release
 n_debs="$(ls debs/*.deb | wc -l | tr -d ' ')"

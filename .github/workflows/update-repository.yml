@@ -1,14 +1,21 @@
 name: Update repository
 
+# Runs on every push to main, when a rating issue changes (the votes are issues labelled
+# "rating"), once a day and by hand. A new vote shows after the next deploy (a few minutes).
 on:
   push:
     branches: [main]
+  issues:
+    types: [opened, edited, closed, reopened, labeled, unlabeled, deleted]
+  schedule:
+    - cron: "17 3 * * *"
   workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
+  issues: read
 
 concurrency:
   group: pages
@@ -22,6 +29,8 @@ jobs:
       - name: Install apt-ftparchive and xz
         run: sudo apt-get update && sudo apt-get install -y apt-utils xz-utils dpkg-dev
       - name: Build the site
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bash scripts/update-repository.sh
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

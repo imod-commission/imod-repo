@@ -8,6 +8,12 @@ Run from the repository root:  python3 migration/generate-depictions.py
 The generated files are committed and are meant to be edited by hand afterwards
 (a new version = edit depiction.json + index.html of that package). Do not run this
 again without checking `git diff`: it overwrites those files.
+
+NOTE (after 2026-11-21): the committed files were edited by hand since. The static rating and
+Downloads rows this script writes were removed (the build now adds them from
+data/yourepo-baseline.json and the GitHub rating issues, see scripts/fetch-ratings.py and
+scripts/patch-depictions.py), the pages carry the <!--ratings:...--> markers, 26Page was added and
+the IconSizeFix 0.1.0 arm64e build was dropped. Running this script would undo all of that.
 """
 import html
 import json

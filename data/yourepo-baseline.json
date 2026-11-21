@@ -1,0 +1,53 @@
+{
+  "source": "YouRepo",
+  "asOf": "2026-11-21",
+  "comment": "Frozen numbers read from the old YouRepo source (migration/yourepo/). The ONLY place the Downloads rows come from; votes here are added to the GitHub issue votes at build time (scripts/fetch-ratings.py). downloads is null when YouRepo had no count; downloadsDetail is optional text shown after the number.",
+  "packages": {
+    "com.imodcommission.26page": {
+      "ratingCount": 10,
+      "ratingMean": 3.6,
+      "downloads": 1161
+    },
+    "com.imodcommission.ersatz": {
+      "ratingCount": 0,
+      "ratingMean": null,
+      "downloads": 57
+    },
+    "com.imodcommission.griddy": {
+      "ratingCount": 0,
+      "ratingMean": null,
+      "downloads": 180
+    },
+    "com.imodcommission.hidelsclock": {
+      "ratingCount": 4,
+      "ratingMean": 3.75,
+      "downloads": 55
+    },
+    "com.imodcommission.iconsizefix": {
+      "ratingCount": 1,
+      "ratingMean": 4.0,
+      "downloads": 78
+    },
+    "com.imodcommission.liquidglasstheme": {
+      "ratingCount": 3,
+      "ratingMean": 4.33,
+      "downloads": 396,
+      "downloadsDetail": "343 arm64 + 53 arm"
+    },
+    "com.imodcommission.movesleepalarm": {
+      "ratingCount": 1,
+      "ratingMean": 1.0,
+      "downloads": 38
+    },
+    "com.imodcommission.nig": {
+      "ratingCount": 0,
+      "ratingMean": null,
+      "downloads": null
+    },
+    "com.imodcommission.notifyyy": {
+      "ratingCount": 0,
+      "ratingMean": null,
+      "downloads": 12
+    }
+  }
+}

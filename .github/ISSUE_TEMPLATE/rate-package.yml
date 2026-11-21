@@ -1,0 +1,51 @@
+name: Rate a package
+description: Give a package 1-5 stars (one vote per GitHub account and package, the newest counts)
+title: "[Rating] "
+labels: ["rating"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for rating! The stars on the package pages are the old YouRepo votes plus the votes
+        from these issues. Each GitHub account has one vote per package: if you rate the same
+        package again, your newest valid rating replaces the older one. A new vote shows on the
+        package page after the next site update (a few minutes). Do not change the headings in the
+        form body; the site reads them.
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      description: The package you are rating.
+      options:
+        - com.azzou.rounderls
+        - com.imodcommission.26page
+        - com.imodcommission.ersatz
+        - com.imodcommission.griddy
+        - com.imodcommission.hidelsclock
+        - com.imodcommission.iconsizefix
+        - com.imodcommission.liquidglasstheme
+        - com.imodcommission.movesleepalarm
+        - com.imodcommission.nig
+        - com.imodcommission.notifyyy
+    validations:
+      required: true
+  - type: dropdown
+    id: rating
+    attributes:
+      label: Rating
+      description: 5 stars is best.
+      options:
+        - 5 stars
+        - 4 stars
+        - 3 stars
+        - 2 stars
+        - 1 star
+    validations:
+      required: true
+  - type: textarea
+    id: comment
+    attributes:
+      label: Comment
+      description: Optional. Anything you want to tell the author (this is public).
+    validations:
+      required: false

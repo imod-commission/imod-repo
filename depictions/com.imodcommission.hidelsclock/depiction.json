@@ -20,17 +20,8 @@
           "class": "DepictionSeparatorView"
         },
         {
-          "class": "DepictionHeaderView",
-          "title": "Rating"
-        },
-        {
-          "class": "DepictionRatingView",
-          "rating": 3.75,
-          "alignment": 1
-        },
-        {
           "class": "DepictionMarkdownView",
-          "markdown": "*Ratings carried over from YouRepo (2026-11-21): 3.75 from 4 votes. These are anonymous star votes; this source cannot collect new votes. YouRepo listed this package as version 0.1; the build in this source is 0.0.1-1+debug.*",
+          "markdown": "*YouRepo listed this package as version 0.1; the build in this source is 0.0.1-1+debug.*",
           "useSpacing": true
         },
         {
@@ -59,11 +50,6 @@
           "class": "DepictionTableTextView",
           "title": "License",
           "text": "Free"
-        },
-        {
-          "class": "DepictionTableTextView",
-          "title": "Downloads (YouRepo, as of 2026-11-21)",
-          "text": "55"
         }
       ]
     }

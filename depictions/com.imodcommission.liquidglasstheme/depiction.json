@@ -20,17 +20,8 @@
           "class": "DepictionSeparatorView"
         },
         {
-          "class": "DepictionHeaderView",
-          "title": "Rating"
-        },
-        {
-          "class": "DepictionRatingView",
-          "rating": 4.33,
-          "alignment": 1
-        },
-        {
           "class": "DepictionMarkdownView",
-          "markdown": "*Ratings carried over from YouRepo (2026-11-21): 4.33 from 3 votes. These are anonymous star votes; this source cannot collect new votes. YouRepo listed the arm64 and arm builds as two packages; downloads and votes are added together.*",
+          "markdown": "*YouRepo listed the arm64 and arm builds as two packages; downloads and votes are added together.*",
           "useSpacing": true
         },
         {
@@ -59,16 +50,6 @@
           "class": "DepictionTableTextView",
           "title": "License",
           "text": "Free"
-        },
-        {
-          "class": "DepictionTableTextView",
-          "title": "Downloads (YouRepo, as of 2026-11-21)",
-          "text": "396"
-        },
-        {
-          "class": "DepictionMarkdownView",
-          "markdown": "*Downloads: 343 (arm64) + 53 (arm).*",
-          "useSpacing": true
         }
       ]
     }

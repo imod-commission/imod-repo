@@ -1,0 +1,55 @@
+{
+  "class": "DepictionTabView",
+  "minVersion": "0.4",
+  "tintColor": "#5E7CE2",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionHeaderView",
+          "title": "Description"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "Makes page scrolling same as iOS 26",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionHeaderView",
+          "title": "Information"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Version",
+          "text": "1.0.0"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Author",
+          "text": "imod_commission"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Section",
+          "text": "Tweaks"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "License",
+          "text": "MIT"
+        },
+        {
+          "class": "DepictionTableButtonView",
+          "title": "Source code",
+          "action": "https://github.com/imod-commission/26Page",
+          "openExternal": 1
+        }
+      ]
+    }
+  ]
+}
