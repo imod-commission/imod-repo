@@ -1,0 +1,73 @@
+{
+  "class": "DepictionTabView",
+  "minVersion": "0.4",
+  "tintColor": "#5E7CE2",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionHeaderView",
+          "title": "Description"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "**A Control Center similar to iOS 26.**\n\nControlCenter26 reshapes Control Center to look and behave like the one in iOS 26: resizable and reorderable modules, connectivity buttons, media and page controls, and smoother animations.\n\nSettings ▸ Control Center holds the options.\n\nPackages for rootless (iphoneos-arm64) and roothide (iphoneos-arm64e) jailbreaks. Requires iOS 14.0 to 17.3, ellekit or MobileSubstrate, CCSupport (com.opa334.ccsupport) and PreferenceLoader.",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionHeaderView",
+          "title": "Information"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Version",
+          "text": "1.0"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Author",
+          "text": "Lionel, Pala and imod_commission"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Section",
+          "text": "Tweaks"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "License",
+          "text": "GPL-3.0"
+        }
+      ]
+    },
+    {
+      "tabname": "Changelog",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionSubheaderView",
+          "title": "1.0"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- Release 1.0.",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "0.0.8a"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- Connectivity module: expand and fold start from the tile's real rect; buttons no longer slide or snap when collapsing.\n- Stock cellular glyph hidden at its enlarged size.\n- Settings opens from the + button without lag.\n- Page icons: scrolling is locked while an icon is held; a running scroll is not cut off.\n- Media module: grey plates behind artwork and routing backgrounds over light wallpaper.",
+          "useSpacing": true
+        }
+      ]
+    }
+  ]
+}
