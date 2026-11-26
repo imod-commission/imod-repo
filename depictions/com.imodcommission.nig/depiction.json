@@ -51,6 +51,15 @@
       "views": [
         {
           "class": "DepictionSubheaderView",
+          "title": "1.0.2"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- Adds support for iOS 15.\n- Improves dark-mode readability of dark lettering in multicolour logos while preserving the coloured mark.",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSubheaderView",
           "title": "1.0.1"
         },
         {
