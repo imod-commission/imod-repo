@@ -1,55 +1,31 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>imod-commission/imod-repo</title>
-<style>
-:root { color-scheme: light; --ink: #1f232b; --page: #f2f2f7; }
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-body {
-  margin: 0; padding: 24px; background: var(--page); color: var(--ink);
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
-  font: 17px/22px ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-}
-.card {
-  position: relative; width: min(400px, 100%); padding: 65px 32px 36px;
-  background: #fff; border-radius: 24px; text-align: center;
-}
-.card::before {
-  content: ""; position: absolute; top: 20px; left: 50%; width: 60px; height: 11px;
-  margin-left: -30px; border-radius: 5.5px; background: var(--page);
-}
-.card img.icon { display: block; width: 64px; height: 64px; margin: 0 auto 16px; border-radius: 15px; }
-.card p { margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.card .title { font-weight: 700; margin-bottom: 3px; }
-.card .dim { opacity: 0.5; }
-.card img.qr { display: block; width: 248px; max-width: 100%; margin: 18px auto 30px; }
-a.open { color: #007aff; text-decoration: underline; }
-</style>
-</head>
-<body>
-<main class="card">
-<img class="icon" src="CydiaIcon.png" alt="">
-<p class="title" id="title"></p>
-<p class="dim" id="address"></p>
-<img class="qr" id="qr" src="qr.svg" alt="">
-<p class="dim">Scan with Camera to add in Irisin</p>
-<p class="dim" id="owner"></p>
-</main>
-<a class="open" id="open">Open in Irisin…</a>
-<script>
-const repository = "imod-commission/imod-repo";
-const source = new URL(".", location.href).href;
-const [owner, name] = repository.split("/");
-document.getElementById("title").textContent = name || repository;
-document.getElementById("address").textContent = source.replace(/^https?:[/][/]/, "").replace(/[/]+$/, "");
-document.getElementById("owner").textContent = "@" + owner;
-document.getElementById("open").href = "irisin://repository/add?url=" + encodeURIComponent(source);
-for (const image of document.querySelectorAll("img")) {
-  image.addEventListener("error", () => { image.style.display = "none"; });
-}
-</script>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>imod repo – iOS package source</title><link rel="icon" href="CydiaIcon.png"><link rel="apple-touch-icon" href="CydiaIcon.png"><style>
+:root{color-scheme:dark;--fg:#edf7f1;--bg:#0b2b1e;--mut:#afc7b8;--card:#174331;--tint:#79d9a5}
+body{font:16px/1.5 -apple-system,system-ui,sans-serif;color:var(--fg);background:var(--bg);margin:0;padding:16px;max-width:680px;margin:0 auto}
+a{color:var(--tint)}h1{margin:.2em 0}h2{font-size:1.1em;margin:1.6em 0 .4em;border-bottom:1px solid var(--card)}
+.head{display:flex;gap:14px;align-items:center}.head img{width:64px;height:64px;border-radius:14px}
+.mut{color:var(--mut)}table{border-collapse:collapse;width:100%}td{padding:6px 0;border-bottom:1px solid var(--card);vertical-align:top}td:first-child{color:var(--mut);padding-right:12px;white-space:nowrap}
+.shots{display:flex;gap:10px;overflow-x:auto;padding:4px 0}.shots img{height:360px;border-radius:9px}
+.card{background:var(--card);border-radius:10px;padding:10px 14px}code{background:var(--card);padding:0 4px;border-radius:4px}
+.list a{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--card);text-decoration:none;color:inherit}
+.list img,.list .noicon{width:44px;height:44px;border-radius:10px;flex:none;background:var(--card)}
+.btn{display:inline-block;background:var(--tint);color:#0b2b1e;padding:8px 16px;border-radius:10px;text-decoration:none;font-weight:600}
+.add-links{display:flex;flex-wrap:wrap;gap:10px}
+</style></head><body>
+<div class="head"><img src="CydiaIcon.png" alt="imod repo"><div><h1>imod repo</h1><div class="mut">Tweaks by imod_commission</div></div></div>
+<div class="add-links"><a class="btn" href="sileo://source/https://imod-commission.github.io/imod-repo/">Add to Sileo</a><a class="btn" href="zbra://sources/add/https://imod-commission.github.io/imod-repo/">Add to Zebra</a><a class="btn" href="irisin://repository/add?url=https%3A%2F%2Fimod-commission.github.io%2Fimod-repo%2F">Add to Irisin</a></div>
+<p>Source URL (Sileo, Zebra, Irisin, Cydia…): <code>https://imod-commission.github.io/imod-repo/</code></p>
+<p class="card">If you installed these from the old imod source, remove the old package first: the IDs changed to <code>com.imodcommission.*</code>, so the old and new packages are different packages and would conflict.</p>
+<h2>Packages</h2><div class="list">
+<a href="depictions/com.imodcommission.26page/"><img src="depictions/com.imodcommission.26page/icon.png" alt=""><div><strong>26Page</strong> <span class="mut">1.0.0 · Tweaks</span><br><span class="mut">Makes page scrolling same as iOS 26</span></div></a>
+<a href="depictions/com.imodcommission.ersatz/"><img src="depictions/com.imodcommission.ersatz/icon.png" alt=""><div><strong>Ersatz Reborn</strong> <span class="mut">2.3.1 · Tweaks</span><br><span class="mut">Replace any text, system-wide!</span></div></a>
+<a href="depictions/com.imodcommission.griddy/"><img src="depictions/com.imodcommission.griddy/icon.png" alt=""><div><strong>Griddy</strong> <span class="mut">1.1.6 · Tweaks</span><br><span class="mut">Layout your icons anywhere you want!</span></div></a>
+<a href="depictions/com.imodcommission.hidelsclock/"><img src="depictions/com.imodcommission.hidelsclock/icon.png" alt=""><div><strong>Hide LS Clock</strong> <span class="mut">0.0.1-1+debug · Tweaks</span><br><span class="mut">An awesome MobileSubstrate tweak!</span></div></a>
+<a href="depictions/com.imodcommission.iconsizefix/"><img src="depictions/com.imodcommission.iconsizefix/icon.png" alt=""><div><strong>IconSizeFix</strong> <span class="mut">1.1 · Tweaks</span><br><span class="mut">Adjusts icon sizes etc (rootless build only; RootHide users convert it themselves)</span></div></a>
+<a href="depictions/com.imodcommission.liquidglasstheme/"><img src="depictions/com.imodcommission.liquidglasstheme/icon.png" alt=""><div><strong>Liquid Glass</strong> <span class="mut">1.0 · Themes</span><br><span class="mut">iOS 26 styled Liquid Glass dock and icon masks</span></div></a>
+<a href="depictions/com.imodcommission.movesleepalarm/"><img src="depictions/com.imodcommission.movesleepalarm/icon.png" alt=""><div><strong>MoveSleepAlarm</strong> <span class="mut">1.0.0 · Tweaks</span><br><span class="mut">实时调整锁屏睡眠闹钟Y轴偏移 (RootHide)</span></div></a>
+<a href="depictions/com.imodcommission.nig/"><img src="depictions/com.imodcommission.nig/icon.png" alt=""><div><strong>Nig</strong> <span class="mut">1.0.0 · Tweaks</span><br><span class="mut">Night mode for unsupported apps and websites!</span></div></a>
+<a href="depictions/com.imodcommission.notifyyy/"><img src="depictions/com.imodcommission.notifyyy/icon.png" alt=""><div><strong>notifyyy</strong> <span class="mut">1.0.0 · Tweaks</span><br><span class="mut">只控制直屏（竖屏）通知横幅的上下位置，横屏不干预</span></div></a>
+<a href="depictions/com.azzou.rounderls/"><span class="noicon"></span><div><strong>RounderLS</strong> <span class="mut">1.5-6+debug · Tweaks</span><br><span class="mut">Third-party package by Azzou, included as it is. A little tweak to make your LockScreen rounder! 下拉通知圆角</span></div></a>
+</div>
+<p class="mut">Ratings on the package pages come from votes cast as GitHub issues (one vote per GitHub account, through the <em>Rate this package</em> button on each package page; a new vote shows after the next site update, a few minutes), plus the votes carried over from the previous source. Downloads count GitHub release asset downloads, including direct downloads from release pages, plus the total carried over from the previous source; downloads served by GitHub Pages are not counted. Found a bug? Use <em>Report an issue</em> on the package page.</p>
+</body></html>
