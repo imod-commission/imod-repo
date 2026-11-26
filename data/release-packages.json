@@ -60,6 +60,21 @@
       "url": "https://github.com/imod-commission/iconsizefix/releases/download/1.1/com.imodcommission.iconsizefix_1.1_iphoneos-arm64.deb",
       "size": 12092,
       "sha256": "28ded6ade486957b34208e2e4b09d8b50e0604fc533c3e9fbf318b2d1dd54d7a"
+    },
+    {
+      "url": "https://github.com/imod-commission/26Page/releases/download/1.0/com.imodcommission.26page_1.0.0_iphoneos-arm64.deb",
+      "size": 8364,
+      "sha256": "0af71b37cf15845bb015dca14806089a714e48611f3410efb6c3e8c63f74c920"
+    },
+    {
+      "url": "https://github.com/imod-commission/movesleepalarm/releases/download/1.0/com.imodcommission.movesleepalarm_1.0.0_iphoneos-arm64.deb",
+      "size": 9390,
+      "sha256": "4d089bc2232248735320f36f76db2c62080cff1c5778a5c6ba2b5e7313be81eb"
+    },
+    {
+      "url": "https://github.com/imod-commission/notifyyy/releases/download/1.0/com.imodcommission.notifyyy_1.0.0_iphoneos-arm64e.deb",
+      "size": 7460,
+      "sha256": "999873dd74b4ea6bab1fe5104962d8ed9ac4585f74bb4630e0de12f6e0c5248a"
     }
   ]
 }
