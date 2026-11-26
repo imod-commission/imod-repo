@@ -35,7 +35,7 @@
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "Replace any text, system-wide!\n\nFork of Ersatz by Skitty, updated for roothide and extended.\n\nFeatures:\n- RootHide support\n- Search bar (matches phrase and replacement)\n- Longest-phrase-first replacement order\n- Adaptive label sizing (widen first, then shrink font)\n- Whole-word replacement\n- Per-rule app whitelist / blacklist (with app picker + search)\n- Exact-match replacement\n- English, Traditional/Simplified Chinese, Japanese localizations\n- Logging",
+          "markdown": "Replace any text, system-wide!\nFork of Ersatz by Skitty, updated for roothide and extended.\n\nFeatures:\n- RootHide support\n- Search bar (matches phrase and replacement)\n- Longest-phrase-first replacement order\n- Adaptive label sizing (widen first, then shrink font)\n- Per-rule app whitelist / blacklist (with app picker + search)\n- English, Traditional/Simplified Chinese, Japanese localizations",
           "useSpacing": true
         },
         {

@@ -13,7 +13,7 @@
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "Adjusts icon sizes etc\n\n独立调整图标大小 / 隐藏 App 与小组件名称（roothide 兼容）\n\nOnly the iphoneos-arm64 (rootless) build, 1.1, is offered in this source. There is no RootHide (iphoneos-arm64e) build: RootHide users have to convert the rootless package themselves.",
+          "markdown": "Adjusts icon sizes etc",
           "useSpacing": true
         },
         {

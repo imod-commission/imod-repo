@@ -90,6 +90,13 @@ apt-ftparchive \
   release "$idx" > Release
 rm -rf "$idx"
 
+# 3a. The Description of each open-source tweak's depiction (data/package-repos.json: "repo") is made to
+# match the Description of its control file on GitHub, in the COPIES in the site (scripts/sync-descriptions.py).
+# Warn only: a failure here never stops the deploy, and the depictions keep the text they have.
+if [ -d "$OUT/depictions" ]; then
+  python3 "$ROOT/scripts/sync-descriptions.py" "$OUT/depictions" \
+    || echo "warning: could not sync the depiction Descriptions with their control files" >&2
+fi
 # 3b. Ratings and downloads, patched into the COPIES of the depictions in the site (the committed
 # files only carry markers). Ratings: the carried-over old votes + the votes cast as GitHub issues
 # (fetch-ratings.py). Downloads: the carried-over old total + the download counts of the GitHub

@@ -13,7 +13,7 @@
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "**A Control Center similar to iOS 26.**\n\nControlCenter26 reshapes Control Center to look and behave like the one in iOS 26: resizable and reorderable modules, connectivity buttons, media and page controls, and smoother animations.\n\nSettings ▸ Control Center holds the options.\n\nPackages for rootless (iphoneos-arm64) and roothide (iphoneos-arm64e) jailbreaks. Requires iOS 14.0 to 17.3, ellekit or MobileSubstrate, CCSupport (com.opa334.ccsupport) and PreferenceLoader.",
+          "markdown": "A tweak that makes the control center similar to that of ios 26",
           "useSpacing": true
         },
         {
