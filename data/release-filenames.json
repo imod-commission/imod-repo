@@ -1,11 +1,4 @@
 {
-  "comment": "Explicit overrides: the index entry (Package, Version, Architecture) points its Filename at this GitHub release asset instead of debs/<file>. Read by scripts/override-filenames.py at build time. The asset must be the same file as debs/<file> (same size and SHA256), or the build fails. Everything not listed here stays on debs/. Currently one entry: a download test of 26Page 1.0.0.",
-  "overrides": [
-    {
-      "package": "com.imodcommission.26page",
-      "version": "1.0.0",
-      "architecture": "iphoneos-arm64",
-      "url": "https://github.com/imod-commission/26Page/releases/download/1.0/com.imodcommission.26page_1.0.0_iphoneos-arm64.deb"
-    }
-  ]
+  "comment": "Explicit overrides: the index entry (Package, Version, Architecture) points its Filename at this GitHub release asset instead of debs/<file>. Read by scripts/override-filenames.py at build time. The asset must be the same file as debs/<file> (same size and SHA256), or the build fails. Everything not listed here stays on debs/. Empty: packages that exist only as release assets are listed in data/release-packages.json instead, and that list is what the build reads for them.",
+  "overrides": []
 }
