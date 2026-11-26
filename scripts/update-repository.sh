@@ -96,6 +96,9 @@ rm -rf "$idx"
 if [ -d "$OUT/depictions" ]; then
   python3 "$ROOT/scripts/sync-descriptions.py" "$OUT/depictions" \
     || echo "warning: could not sync the depiction Descriptions with their control files" >&2
+  # The Version shown in each depiction is the newest version of that package in the index (from the .deb's control file).
+  python3 "$ROOT/scripts/sync-versions.py" "$OUT/Packages" "$OUT/depictions" \
+    || echo "warning: could not sync the depiction versions with the index" >&2
 fi
 # 3b. Ratings and downloads, patched into the COPIES of the depictions in the site (the committed
 # files only carry markers). Ratings: the carried-over old votes + the votes cast as GitHub issues
