@@ -40,9 +40,8 @@
       "report": "repo"
     },
     "com.imodcommission.nig": {
-      "repo": "imod-commission/Nig",
-      "source": "https://github.com/imod-commission/Nig",
-      "report": "repo"
+      "repo": null,
+      "report": "none"
     },
     "com.imodcommission.notifyyy": {
       "repo": "imod-commission/notifyyy",
