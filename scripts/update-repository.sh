@@ -32,6 +32,20 @@ else
   : > "$work_dir/Packages"
 fi
 
+# Packages whose .deb is only on a GitHub release (data/release-packages.json): downloaded here,
+# checked against the listed SHA256, indexed beside debs/ with Filename at the release asset.
+# Their files are never copied into the site.
+release_dir="$work_dir/release-debs"
+python3 scripts/release-packages.py fetch "$repository_root" "$release_dir"
+if compgen -G "$release_dir/*.deb" >/dev/null; then
+  (cd "$release_dir" && apt-ftparchive packages .) \
+    | python3 scripts/release-packages.py point "$repository_root" > "$work_dir/Packages.release"
+  if [[ -s "$work_dir/Packages" ]]; then
+    printf '\n' >> "$work_dir/Packages"
+  fi
+  cat "$work_dir/Packages.release" >> "$work_dir/Packages"
+fi
+
 # A package with no Section is filed under nothing; refuse it here.
 awk '
   BEGIN { RS = ""; FS = "\n" }

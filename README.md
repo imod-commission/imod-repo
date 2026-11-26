@@ -13,6 +13,9 @@ Add `https://imod-commission.github.io/imod-repo/` in Irisin.
   `scripts/update-repository.sh`, which indexes `debs/` into `Packages`,
   `Packages.xz` and `Release`, and publishes the site to GitHub Pages.
   Never commit those indexes or `_site/`.
+- `data/release-packages.json` lists packages whose `.deb` stays only on a GitHub
+  release (not in `debs/`): the build downloads each, checks its SHA256 and
+  points the index at the release asset (`scripts/release-packages.py`).
 - `depictions/<package id>/` holds a package's depiction, icon and
   banner; `sileo-featured.json` the banners Irisin shows at the top of the
   source; `CydiaIcon.png`, when present, the source's icon.

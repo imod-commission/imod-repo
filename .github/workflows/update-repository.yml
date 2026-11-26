@@ -9,6 +9,8 @@ on:
       - "debs/**"
       - "depictions/**"
       - "scripts/update-repository.sh"
+      - "scripts/release-packages.py"
+      - "data/release-packages.json"
       - "CydiaIcon.png"
       - "index.html"
       - "sileo-featured.json"
