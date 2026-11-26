@@ -10,6 +10,56 @@
       "url": "https://github.com/imod-commission/Controlcenter26/releases/download/v1.0/com.controlcenter26_1.0_iphoneos-arm64e.deb",
       "size": 405616,
       "sha256": "c3b64d07f1763365e44df38555863dede4f3b5abe90de48ebee5819ae00196f1"
+    },
+    {
+      "url": "https://github.com/imod-commission/Ersatz/releases/download/2.0/com.imodcommission.ersatz_2.0_iphoneos-arm64e.deb",
+      "size": 48018,
+      "sha256": "a2478e356d088d460c25d0532c9be22c26f1cb0092087f731bb9f2c6bc963be8"
+    },
+    {
+      "url": "https://github.com/imod-commission/Ersatz/releases/download/2.1/com.imodcommission.ersatz_2.1_iphoneos-arm64e.deb",
+      "size": 53232,
+      "sha256": "4882736f0b8f8f0a43572b343d407066888db43d264b786d75cb162893325491"
+    },
+    {
+      "url": "https://github.com/imod-commission/Ersatz/releases/download/2.1.1/com.imodcommission.ersatz_2.1.1_iphoneos-arm64e.deb",
+      "size": 54944,
+      "sha256": "c9f6d533a4a5165c07be47288d156026aa523f1125601931d37607e63c1e1e19"
+    },
+    {
+      "url": "https://github.com/imod-commission/Ersatz/releases/download/2.2/com.imodcommission.ersatz_2.2_iphoneos-arm64e.deb",
+      "size": 58290,
+      "sha256": "a9ae073cdff8829dcdfff567b6a0e4a77bfc697499b87e35e274ddaffd620004"
+    },
+    {
+      "url": "https://github.com/imod-commission/Ersatz/releases/download/2.3/com.imodcommission.ersatz_2.3_iphoneos-arm64e.deb",
+      "size": 59338,
+      "sha256": "11af1c16dd099e60f67e17e292ea6e9fd7fa549a69de99fcfd668d5d2fc23a26"
+    },
+    {
+      "url": "https://github.com/imod-commission/Ersatz/releases/download/2.3.1/com.imodcommission.ersatz_2.3.1_iphoneos-arm64e.deb",
+      "size": 60124,
+      "sha256": "7fd7ac0f6a2a419adeb578b370d8156c90adcbd058f3680bf2264368942f94fc"
+    },
+    {
+      "url": "https://github.com/imod-commission/griddy/releases/download/1.1/com.imodcommission.griddy_1.1_iphoneos-arm64.deb",
+      "size": 23218,
+      "sha256": "d1e820ae619c283925ebcf641ccc477a60f57ac541160a3c813d5fc79dfd6f23"
+    },
+    {
+      "url": "https://github.com/imod-commission/griddy/releases/download/1.1.5/com.imodcommission.griddy_1.1.5_iphoneos-arm64.deb",
+      "size": 26366,
+      "sha256": "e66931900dd3b877517e8b03b57a5a3169a0547109e0b28d859fb6c4edade388"
+    },
+    {
+      "url": "https://github.com/imod-commission/griddy/releases/download/1.1.6/com.imodcommission.griddy_1.1.6_iphoneos-arm64.deb",
+      "size": 26556,
+      "sha256": "6cb397a61ec04239a7feb23c85e2a87884be284dd7f6731ea4639cfce5118080"
+    },
+    {
+      "url": "https://github.com/imod-commission/iconsizefix/releases/download/1.1/com.imodcommission.iconsizefix_1.1_iphoneos-arm64.deb",
+      "size": 12092,
+      "sha256": "28ded6ade486957b34208e2e4b09d8b50e0604fc533c3e9fbf318b2d1dd54d7a"
     }
   ]
 }
