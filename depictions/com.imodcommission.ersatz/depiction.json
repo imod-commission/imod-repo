@@ -86,7 +86,7 @@
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "- Exact-match replacement",
+          "markdown": "- whole word replacement",
           "useSpacing": true
         },
         {
@@ -114,15 +114,6 @@
         {
           "class": "DepictionMarkdownView",
           "markdown": "- fix issues for liquidass\n- logs available at `jbroot/var/mobile/Library/Logs/Ersatz.log`",
-          "useSpacing": true
-        },
-        {
-          "class": "DepictionSubheaderView",
-          "title": "2.0"
-        },
-        {
-          "class": "DepictionMarkdownView",
-          "markdown": "- Initial release",
           "useSpacing": true
         }
       ]

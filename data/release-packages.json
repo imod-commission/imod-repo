@@ -2,6 +2,16 @@
   "comment": "Packages whose .deb is only on a GitHub release, not in debs/. scripts/release-packages.py downloads each url in the build, checks its size and sha256 against this list (the build fails otherwise), indexes it beside debs/, and sets its Filename to the url. The package's fields come from the .deb itself. Add a version by its release asset; keep the old ones listed while they are still on the source.",
   "packages": [
     {
+      "url": "https://github.com/imod-commission/Controlcenter26/releases/download/v1.1/com.controlcenter26_1.1_iphoneos-arm64.deb",
+      "size": 495992,
+      "sha256": "26f69719eecd3dc5a428bf45d373f50da37109678f2944a5016b8c443e383973"
+    },
+    {
+      "url": "https://github.com/imod-commission/Controlcenter26/releases/download/v1.1/com.controlcenter26_1.1_iphoneos-arm64e.deb",
+      "size": 408544,
+      "sha256": "94d861b4d63ff687bd881e959484fe3a83e7b295e6199e94b75b881a7894e9a2"
+    },
+    {
       "url": "https://github.com/imod-commission/Controlcenter26/releases/download/v1.0/com.controlcenter26_1.0_iphoneos-arm64.deb",
       "size": 488088,
       "sha256": "13b40260f14b54f30472f551853a735dd7ef3a888061803f76706539c92796d8"

@@ -73,7 +73,7 @@
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "- initial release",
+          "markdown": "- Fixed issues for folder icons, icon themes, app library",
           "useSpacing": true
         }
       ]

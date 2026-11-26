@@ -26,7 +26,7 @@
         {
           "class": "DepictionTableTextView",
           "title": "Version",
-          "text": "1.0"
+          "text": "1.1"
         },
         {
           "class": "DepictionTableTextView",
@@ -51,11 +51,20 @@
       "views": [
         {
           "class": "DepictionSubheaderView",
+          "title": "1.1"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "### Landscape\n- Control Center pages its modules by column in landscape, like iOS 26. Swipe left or right to move between pages; it returns to the first page when you rotate.\n- The Connectivity page uses the same wide layout as the expanded Connectivity module.\n- The Music page and the expanded Music module use a wide card in landscape: artwork on the left, controls on the right.\n- Fixed the sizes of the expanded Connectivity and Music modules in landscape.\n- Fixed dark boxes behind some modules in landscape.\n- Notched screens are detected the same way in both orientations.\n\n### Connectivity module\n- Removed the extra glass from Connectivity buttons that are off.\n\n### Packaging\n- Package `com.controlcenter26` 1.1 for roothide (arm64e) and rootless (arm64 and arm64e).\n- Depends on ellekit or mobilesubstrate, CCSupport (`com.opa334.ccsupport`) and PreferenceLoader.",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSubheaderView",
           "title": "1.0"
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "- Release 1.0.",
+          "markdown": "### Connectivity module\n- Expanding and folding starts from the tile's real on-screen position, so the animation no longer jumps.\n- Collapsing puts the Airplane, Wi-Fi and AirDrop buttons in place at once and fades them in, so the Wi-Fi button no longer slides to the wrong spot.\n- The stock cellular glyph is hidden at its enlarged size.\n- The + button opens Settings much faster: Control Center closes first, then Settings opens.\n\n### Page icons\n- The pages don't move while a page icon is held or dragged.\n- Icons ignore touches while Control Center is still scrolling, so a running scroll is not cut off.\n- The scroll lock is released when the touch ends outside the icon or Control Center closes mid-hold.\n\n### Media module\n- Grey plates behind artwork and AirPlay over light wallpaper, for readable text.\n\n### Other\n- Author and About text now credit imod_commission.\n\n### Known issues\n- A page icon can still disappear in some conditions. Not yet reproduced.\n- A swipe made within about one second after releasing a page icon is not blocked.",
           "useSpacing": true
         },
         {

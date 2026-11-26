@@ -6,11 +6,32 @@ a{color:var(--tint)}h1{margin:.2em 0}h2{font-size:1.1em;margin:1.6em 0 .4em;bord
 .head{display:flex;gap:14px;align-items:center}.head img{width:64px;height:64px;border-radius:14px}
 .mut{color:var(--mut)}table{border-collapse:collapse;width:100%}td{padding:6px 0;border-bottom:1px solid var(--card);vertical-align:top}td:first-child{color:var(--mut);padding-right:12px;white-space:nowrap}
 </style></head><body>
-<div class="head"><img src="icon.png" alt="ControlCenter26 icon"><div><h1>ControlCenter26</h1><div class="mut">com.controlcenter26 · 1.0</div></div></div>
+<div class="head"><img src="icon.png" alt="ControlCenter26 icon"><div><h1>ControlCenter26</h1><div class="mut">com.controlcenter26 · 1.1</div></div></div>
 <h2>Description</h2><p><strong>A Control Center similar to iOS 26.</strong></p>
 <p>ControlCenter26 reshapes Control Center to look and behave like the one in iOS 26: resizable and reorderable modules, connectivity buttons, media and page controls, and smoother animations.</p>
 <p>Settings ▸ Control Center holds the options.</p>
 <p>Packages for rootless (iphoneos-arm64) and roothide (iphoneos-arm64e) jailbreaks. Requires iOS 14.0 to 17.3, ellekit or MobileSubstrate, CCSupport (com.opa334.ccsupport) and PreferenceLoader.</p>
-<!--ratings:summary--><h2>Information</h2><table><tr><td>Version</td><td>1.0</td></tr><tr><td>Architectures</td><td>iphoneos-arm64, iphoneos-arm64e</td></tr><tr><td>Author</td><td>Lionel, Pala and imod_commission</td></tr><tr><td>Section</td><td>Tweaks</td></tr><tr><td>License</td><td>GPL-3.0</td></tr><!--ratings:rows--></table>
+<!--ratings:summary--><h2>Information</h2><table><tr><td>Version</td><td>1.1</td></tr><tr><td>Architectures</td><td>iphoneos-arm64, iphoneos-arm64e</td></tr><tr><td>Author</td><td>Lionel, Pala and imod_commission</td></tr><tr><td>Section</td><td>Tweaks</td></tr><tr><td>License</td><td>GPL-3.0</td></tr><!--ratings:rows--></table>
 <!--ratings:links-->
+<h2>Changelog</h2>
+<h3>1.1</h3>
+<h4>Landscape</h4>
+<ul><li>Control Center pages its modules by column in landscape, like iOS 26. Swipe left or right to move between pages; it returns to the first page when you rotate.</li><li>The Connectivity page uses the same wide layout as the expanded Connectivity module.</li><li>The Music page and the expanded Music module use a wide card in landscape: artwork on the left, controls on the right.</li><li>Fixed the sizes of the expanded Connectivity and Music modules in landscape.</li><li>Fixed dark boxes behind some modules in landscape.</li><li>Notched screens are detected the same way in both orientations.</li></ul>
+<h4>Connectivity module</h4>
+<ul><li>Removed the extra glass from Connectivity buttons that are off.</li></ul>
+<h4>Packaging</h4>
+<ul><li>Package <code>com.controlcenter26</code> 1.1 for roothide (arm64e) and rootless (arm64 and arm64e).</li><li>Depends on ellekit or mobilesubstrate, CCSupport (<code>com.opa334.ccsupport</code>) and PreferenceLoader.</li></ul>
+<h3>1.0</h3>
+<h4>Connectivity module</h4>
+<ul><li>Expanding and folding starts from the tile's real on-screen position, so the animation no longer jumps.</li><li>Collapsing puts the Airplane, Wi-Fi and AirDrop buttons in place at once and fades them in, so the Wi-Fi button no longer slides to the wrong spot.</li><li>The stock cellular glyph is hidden at its enlarged size.</li><li>The + button opens Settings much faster: Control Center closes first, then Settings opens.</li></ul>
+<h4>Page icons</h4>
+<ul><li>The pages don't move while a page icon is held or dragged.</li><li>Icons ignore touches while Control Center is still scrolling, so a running scroll is not cut off.</li><li>The scroll lock is released when the touch ends outside the icon or Control Center closes mid-hold.</li></ul>
+<h4>Media module</h4>
+<ul><li>Grey plates behind artwork and AirPlay over light wallpaper, for readable text.</li></ul>
+<h4>Other</h4>
+<ul><li>Author and About text now credit imod_commission.</li></ul>
+<h4>Known issues</h4>
+<ul><li>A page icon can still disappear in some conditions. Not yet reproduced.</li><li>A swipe made within about one second after releasing a page icon is not blocked.</li></ul>
+<h3>0.0.8a</h3>
+<ul><li>Connectivity module: expand and fold start from the tile's real rect; buttons no longer slide or snap when collapsing.</li><li>Stock cellular glyph hidden at its enlarged size.</li><li>Settings opens from the + button without lag.</li><li>Page icons: scrolling is locked while an icon is held; a running scroll is not cut off.</li><li>Media module: grey plates behind artwork and routing backgrounds over light wallpaper.</li></ul>
 <p class="mut"><a href="../../">← imod repo</a></p></body></html>
