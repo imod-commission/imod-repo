@@ -88,6 +88,29 @@ def sync_html(path, pid, version):
     return True
 
 
+def sync_root(path, newest):
+    """Set the version in each root-page row (<a href="depictions/<id>/">) to the newest in the index.
+
+    True when the file changed; a string names the problem. A row whose package the index does not list
+    is left as it is.
+    """
+    text = open(path, encoding="utf-8").read()
+    new = text
+    rows = 0
+    for pid, version in newest.items():
+        pat = re.compile(r'(<a href="depictions/' + re.escape(pid) +
+                         r'/">[^\n]*?<strong>[^<]*</strong> <span class="mut">)([^<\n]*?)( \u00b7 )')
+        new, n = pat.subn(lambda m, v=version: m.group(1) + html.escape(v) + m.group(3), new, count=1)
+        rows += n
+    if not rows:
+        return "no version row"
+    if new == text:
+        return False
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(new)
+    return True
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("packages")
@@ -112,6 +135,14 @@ def main():
                 warn("%s: %s" % (pid, r))
             elif r:
                 changed += 1
+    # The source's own page (index.html beside depictions/) lists every tweak with its version too.
+    root = os.path.join(os.path.dirname(os.path.abspath(args.depictions)), "index.html")
+    if os.path.isfile(root):
+        r = sync_root(root, newest)
+        if isinstance(r, str):
+            warn("index.html: %s" % r)
+        elif r:
+            changed += 1
     print("set the version of %d file(s) in %s" % (changed, args.depictions))
 
 
