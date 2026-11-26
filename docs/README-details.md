@@ -148,14 +148,12 @@ tweak's **own** GitHub issue tracker, from the map in `data/package-repos.json`:
 
 | Package | Report an issue goes to |
 | --- | --- |
-| 26Page, Ersatz, IconSizeFix, MoveSleepAlarm, notifyyy, Nig | `https://github.com/imod-commission/<repo>/issues/new` of the tweak's repository |
-| Griddy | this repository's bug-report form (`imod-commission/griddy` is a fork with Issues turned off) |
+| 26Page, Ersatz, IconSizeFix, MoveSleepAlarm, notifyyy, Nig, Griddy, Controlcenter26 | `https://github.com/imod-commission/<repo>/issues/new` of the tweak's repository |
 | HideLSClock, Liquid Glass | this repository's bug-report form (`bug-report.yml`, label `bug`): they have no repository |
 | RounderLS (third party) | no button |
 
 Every repository in the map was checked against the GitHub API. To move a package to its own tracker
-later, set its `report` to `"repo"` in `data/package-repos.json` (for Griddy: enable Issues in that
-repository first).
+later, set its `report` to `"repo"` in `data/package-repos.json` (Issues must be enabled in that repository).
 
 ## Migration archive
 

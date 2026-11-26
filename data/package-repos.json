@@ -4,8 +4,7 @@
     "com.controlcenter26": {
       "repo": "imod-commission/Controlcenter26",
       "source": "https://github.com/imod-commission/Controlcenter26",
-      "report": "imod-repo",
-      "reportNote": "imod-commission/Controlcenter26 is a fork with Issues turned off, so reports go to this repository. Enable Issues there and set report to repo to switch."
+      "report": "repo"
     },
     "com.imodcommission.26page": {
       "repo": "imod-commission/26Page",
@@ -20,8 +19,7 @@
     "com.imodcommission.griddy": {
       "repo": "imod-commission/griddy",
       "source": "https://github.com/imod-commission/griddy",
-      "report": "imod-repo",
-      "reportNote": "imod-commission/griddy is a fork with Issues turned off (issues/new answers 404), so reports go to this repository. Enable Issues there and set report to repo to switch."
+      "report": "repo"
     },
     "com.imodcommission.hidelsclock": {
       "repo": null,
