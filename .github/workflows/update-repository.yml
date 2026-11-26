@@ -1,64 +1,65 @@
-name: Build and Deploy APT Repository
+name: Update repository
 
+# Runs on every push to main, when a rating issue changes (the votes are issues labelled
+# "rating"), once a day and by hand. A new vote shows after the next deploy (a few minutes).
+# After counting, each valid rating issue is thanked and closed (scripts/close-rating-issues.py);
+# closed issues still count.
 on:
   push:
-    branches:
-      - main
-    paths:
-      - ".github/workflows/update-repository.yml"
-      - "debs/**"
-      - "depictions/**"
-      - "scripts/update-repository.sh"
-      - "CydiaIcon.png"
-      - "index.html"
-      - "sileo-featured.json"
+    branches: [main]
+  issues:
+    types: [opened, edited, closed, reopened, labeled, unlabeled, deleted]
+  schedule:
+    - cron: "17 3 * * *"
   workflow_dispatch:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
+  issues: write
 
 concurrency:
-  group: github-pages
-  cancel-in-progress: true
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   build:
+    # An issue event only matters when the issue is (or was) a rating; bug reports do not rebuild the site.
+    if: github.event_name != 'issues' || contains(github.event.issue.labels.*.name, 'rating') || github.event.label.name == 'rating'
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Install repository tools
-        run: |
-          sudo apt-get update
-          sudo apt-get install --yes apt-utils xz-utils qrencode
-
-      - name: Configure GitHub Pages
-        id: pages
-        uses: actions/configure-pages@v5
-
-      - name: Build repository
+      - uses: actions/checkout@v4
+      - name: Install apt-ftparchive and xz
+        run: sudo apt-get update && sudo apt-get install -y apt-utils xz-utils dpkg-dev
+      - name: Build the site
         env:
-          REPOSITORY_NAME: ${{ github.event.repository.name }}
-          REPOSITORY_OWNER: ${{ github.repository_owner }}
-          SOURCE_URL: ${{ steps.pages.outputs.base_url }}
-        run: ./scripts/update-repository.sh
-
-      - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v3
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RATINGS_OUT: ${{ runner.temp }}/ratings.json
+        run: bash scripts/update-repository.sh
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+      # After the count above: thank and close the valid rating issues that are still open.
+      # Never fails the run (a warning only); needs issues: write.
+      - name: Thank and close counted rating issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RATINGS_OUT: ${{ runner.temp }}/ratings.json
+        run: |
+          if [ -s "$RATINGS_OUT" ]; then
+            python3 scripts/close-rating-issues.py "$RATINGS_OUT"
+          else
+            echo "no votes file, nothing to close"
+          fi
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4
